@@ -1,11 +1,37 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Rug.Osc/1.2.5": {
+        "type": "package",
+        "compile": {
+          "lib/Rug.Osc.dll": {}
+        },
+        "runtime": {
+          "lib/Rug.Osc.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Rug.Osc/1.2.5": {
+      "sha512": "nbujIPTk+QO90qv+U9E5reGFEBDpu8c4I65dkVxR4/xBL+WXUzUjvfBm5mEmtRRqFeoqfK7VLje+FEdz/FmoTg==",
+      "type": "package",
+      "path": "rug.osc/1.2.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Rug.Osc.XML",
+        "lib/Rug.Osc.dll",
+        "rug.osc.1.2.5.nupkg.sha512",
+        "rug.osc.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Rug.Osc >= 1.2.5"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\RoToRo\\.nuget\\packages\\": {},
@@ -14,11 +40,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\NextCloud\\FH22\\SEG\\Projekt\\Verarbeitung Test\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+      "projectUniqueName": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
       "projectName": "VerarbeitungTest",
-      "projectPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\Verarbeitung Test\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+      "projectPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
       "packagesPath": "C:\\Users\\RoToRo\\.nuget\\packages\\",
-      "outputPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\Verarbeitung Test\\VerarbeitungTest\\VerarbeitungTest\\obj\\",
+      "outputPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +76,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Rug.Osc": {
+            "target": "Package",
+            "version": "[1.2.5, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -87,5 +119,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Das Paket \"Rug.Osc 1.2.5\" wurde nicht mit dem Projektzielframework \"net6.0\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "Rug.Osc",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

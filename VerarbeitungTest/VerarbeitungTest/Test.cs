@@ -20,16 +20,19 @@ namespace VerarbeitungTest
             modusHinzufügen();
 
         }
-
+        // gernerelle lauf rutine wird einmal pro tick ausgeführt
         public void run()
         {
             nutzerEingabe();
         }
 
+        //verabeitung und empfang der nutzerdaten ggf filter klasse hinzufügen
         void nutzerEingabe()
         {
             aktuellerModus.nutzerEingabeVerarbeitung();
         }
+
+        //erstellen des test modus
         void modusHinzufügen()
         {
             aktuellerModus = new _2DTest();

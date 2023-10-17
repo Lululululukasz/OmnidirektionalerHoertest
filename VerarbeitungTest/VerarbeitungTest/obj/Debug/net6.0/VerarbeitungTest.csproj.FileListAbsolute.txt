@@ -26,3 +26,6 @@ D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\
 D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\VerarbeitungTest.pdb
 D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.genruntimeconfig.cache
 D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\ref\VerarbeitungTest.dll
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.csproj.AssemblyReference.cache
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\Rug.Osc.dll
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.csproj.CopyComplete

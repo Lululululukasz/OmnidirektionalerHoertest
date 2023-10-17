@@ -9,6 +9,9 @@ namespace VerarbeitungTest
 {
     internal class ZielPunkt
     {
+        //generieren des ziel punktes
+
+
         public Types.Vector3 position { get; }
 
         public ZielPunkt(int param) {
