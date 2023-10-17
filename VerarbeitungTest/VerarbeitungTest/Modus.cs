@@ -8,6 +8,9 @@ namespace VerarbeitungTest
 {
     internal class Modus
     {
+        protected float punkte;
+
+
         public virtual void nutzerEingabeVerarbeitung()
         {
 

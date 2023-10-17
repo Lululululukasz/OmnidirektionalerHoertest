@@ -14,7 +14,7 @@ namespace VerarbeitungTest
 
             while (true)
             {
-
+                t.run();
             }
         }
     }

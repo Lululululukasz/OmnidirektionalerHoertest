@@ -10,8 +10,9 @@ namespace VerarbeitungTest
     {
         public override void nutzerEingabeVerarbeitung()
         {
-            base.nutzerEingabeVerarbeitung();
 
+            Console.WriteLine("Nutzer Eingabe...");
+            
 
         }
     }
