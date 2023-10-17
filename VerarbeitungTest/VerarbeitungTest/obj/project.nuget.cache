@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "8tsnP5jSce//WiqW1p6iKj5BS8lHUnIZCPLjk5N+FxMOWl3Qus/V76F9yynmlML62ryFiHmWaHMfGxHcWa93Uw==",
+  "success": true,
+  "projectFilePath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\Verarbeitung Test\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.22\\microsoft.netcore.app.host.win-x64.6.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

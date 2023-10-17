@@ -1,0 +1,14 @@
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\VerarbeitungTest.exe
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\VerarbeitungTest.deps.json
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\VerarbeitungTest.runtimeconfig.json
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\VerarbeitungTest.dll
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\VerarbeitungTest.pdb
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.AssemblyInfoInputs.cache
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.AssemblyInfo.cs
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.csproj.CoreCompileInputs.cache
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.dll
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\refint\VerarbeitungTest.dll
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.pdb
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\VerarbeitungTest.genruntimeconfig.cache
+D:\NextCloud\FH22\SEG\Projekt\Verarbeitung Test\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\ref\VerarbeitungTest.dll
