@@ -15,6 +15,7 @@ namespace VerarbeitungTest
             while (true)
             {
                 t.run();
+                Thread.Sleep(100);
             }
         }
     }

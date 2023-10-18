@@ -14,8 +14,11 @@ namespace VerarbeitungTest
         private int port;
         static OscReceiver receiver;
 
+        static Object _lock;
 
-        public volatile OscPacket OSCData;
+        private Test testCallback;
+
+        public static List<OscPacket> Packages;
 
         private static void OSCThread()
         {
@@ -29,8 +32,11 @@ namespace VerarbeitungTest
                         
                         OscPacket packet = receiver.Receive();
                         // Testweise OSC Daten in Konsole Loggen
-                        Console.WriteLine(packet.ToString());
-
+                        //Console.WriteLine(packet.ToString());
+                        lock(_lock)
+                        {
+                            Packages.Add(packet);
+                        }
                         
                     }
                 }
@@ -46,15 +52,19 @@ namespace VerarbeitungTest
             }
         }
 
-        public OSCReceiver(int port = 9001) {
+        public OSCReceiver(Test callback,int port = 9001) {
             this.port = port;
             Thread t = new Thread(new ThreadStart(OSCThread));
-
+            Packages = new List<OscPacket>();
+            _lock = new Object();
             receiver = new OscReceiver(port);
             receiver.Connect();
             t.Start();
         }
 
-
+        public void ClearBuffer()
+        {
+            Packages.Clear();
+        }
     }
 }
