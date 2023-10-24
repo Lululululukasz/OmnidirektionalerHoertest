@@ -12,10 +12,11 @@ namespace VerarbeitungTest
         {
             Test t = new Test();
 
+            //Testweise Haupt rutine genauere steuerung der tests hier ggf einfügen
             while (true)
             {
                 t.run();
-                Thread.Sleep(100);
+                Thread.Sleep(25);
             }
         }
     }

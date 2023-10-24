@@ -21,24 +21,26 @@ namespace VerarbeitungTest
             sender.Connect();
         }
 
-        public void sendeDeg(int ObjectID,float Azimut,float Elevation,float Distance)
+        public void sendeDeg(int ObjectID,float Azimut,float Elevation,float Distance) //Sendet an den Sounddome Deg daten im passenden format
         {
+            Console.WriteLine("SENDEOSC Daten: "+Azimut+" "+Elevation);
             sender.Send(new OscMessage("/adm/obj/"+ ObjectID +"/azim", Azimut));
             sender.Send(new OscMessage("/adm/obj/" + ObjectID + "/elev", Elevation));
             sender.Send(new OscMessage("/adm/obj/" + ObjectID + "/dist", Distance));
         }
-        public void sendePos(int ObjectID, float x,float y,float z) 
+        public void sendePos(int ObjectID, float x,float y,float z) //Sendet kordinaten im passenden format
         {
+            Console.WriteLine("SENDEOSC Daten: " + x + " " + y);
             sender.Send(new OscMessage("/adm/obj/" + ObjectID + "/x", x));
             sender.Send(new OscMessage("/adm/obj/" + ObjectID + "/y", y));
             sender.Send(new OscMessage("/adm/obj/" + ObjectID + "/z", z));
         }
-        public void reconnect()
+        public void reconnect() //falls aus irgentwelchen gründen die verbindung sich aufhängt
         {
             sender.Close();
             sender.Connect();
         }
-        public void disconnect()
+        public void disconnect() //sollte vielleicht mal von nutzen sein
         {
             sender.Close();
         }

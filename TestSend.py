@@ -7,7 +7,7 @@ import math
 from pythonosc import udp_client
 
 
-client = udp_client.SimpleUDPClient("127.0.0.1", 9001)
+client = udp_client.SimpleUDPClient("127.0.0.1", 9000)
 i = 0.01
 while 1:
     alpha = math.sin(i)*180+180

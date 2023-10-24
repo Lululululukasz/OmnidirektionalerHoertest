@@ -20,7 +20,7 @@ namespace VerarbeitungTest
 
         public static List<OscPacket> Packages;
 
-        private static void OSCThread()
+        private static void OSCThread()//seperater Thread zum Empfangen von OSC Daten
         {
             try
             {
@@ -33,6 +33,8 @@ namespace VerarbeitungTest
                         OscPacket packet = receiver.Receive();
                         // Testweise OSC Daten in Konsole Loggen
                         //Console.WriteLine(packet.ToString());
+
+                        //ThreadSafe packet zur liste hinzufügen
                         lock(_lock)
                         {
                             Packages.Add(packet);
@@ -52,7 +54,7 @@ namespace VerarbeitungTest
             }
         }
 
-        public OSCReceiver(Test callback,int port = 9001) {
+        public OSCReceiver(Test callback,int port = 9000) {
             this.port = port;
             Thread t = new Thread(new ThreadStart(OSCThread));
             Packages = new List<OscPacket>();
