@@ -15,7 +15,6 @@ namespace VerarbeitungTest
             //Testweise Haupt rutine genauere steuerung der tests hier ggf einfügen
             while (true)
             {
-                t.run();
                 Thread.Sleep(25);
             }
         }
