@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "e4O4APSpftqjjA+UPyiG+UQqDqKDWyNp1gFW2fYsoMvb7BJx5ThoL0sX4YIaNFYY3anBXqPDlarXeTIHzzuhvg==",
+  "dgSpecHash": "897+ueTZULlkFRMbdXn6VSt9rQZmJQxdgi9BEjXZdgM1TuGrbl30DR/kmTkeZ1Q9fK/3eyHMYaNWynUKqibWRA==",
   "success": true,
-  "projectFilePath": "E:\\NextcloudFhtemp\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+  "projectFilePath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\RoToRo\\.nuget\\packages\\rug.osc\\1.2.5\\rug.osc.1.2.5.nupkg.sha512"
+    "C:\\Users\\RoToRo\\.nuget\\packages\\rug.osc\\1.2.5\\rug.osc.1.2.5.nupkg.sha512",
+    "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.22\\microsoft.netcore.app.host.win-x64.6.0.22.nupkg.sha512"
   ],
   "logs": [
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VerarbeitungTest
 {
-    internal class OscReceiver
+    internal class SystemController
     {
     }
 }
