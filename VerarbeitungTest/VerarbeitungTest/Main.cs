@@ -8,14 +8,24 @@ namespace VerarbeitungTest
 {
     class Main
     {
-        public void run()
+        public static void run()
         {
-            Test t = new Test();
+            //Run Unit Tests
+            OscReceiverTest test1 = new OscReceiverTest();
+            Console.WriteLine("[i] Bitte TestSend.py starten");
+            while (!test1.testComplete())
+            {
+                Thread.Sleep(1000);
+            }
+            OscRouterTest test2 = new OscRouterTest();
+            //test1.RunTest();
+            test2.RunTest();
 
-            //Testweise Haupt rutine genauere steuerung der tests hier ggf einfügen
+            //Main Loop
             while (true)
             {
-                Thread.Sleep(25);
+                //Console.WriteLine("Tick");
+                Thread.Sleep(100);
             }
         }
     }
