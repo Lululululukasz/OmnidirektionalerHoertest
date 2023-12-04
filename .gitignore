@@ -4,7 +4,9 @@
 
 *.vsidx
 *.wsuo
-*suo
+*.suo
 *.cache
 *.editorconfig
-/VerarbeitungTest/VerarbeitungTest/obj/Debug/*
+/VerarbeitungTest/VerarbeitungTest/obj/Debug/**
+/VerarbeitungTest/VerarbeitungTest/obj/Debug/net6.0/VerarbeitungTest.GeneratedMSBuildEditorConfig.editorconfig
+
