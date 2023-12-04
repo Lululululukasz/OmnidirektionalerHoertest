@@ -1,0 +1,10 @@
+################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+*.vsidx
+*.wsuo
+*suo
+*.cache
+*.editorconfig
+/VerarbeitungTest/VerarbeitungTest/obj/Debug/*
