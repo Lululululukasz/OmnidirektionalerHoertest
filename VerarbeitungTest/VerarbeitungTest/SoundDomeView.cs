@@ -8,5 +8,10 @@ namespace VerarbeitungTest
 {
     internal class SoundDomeView
     {
+        public void askQuestion(Question question)
+        {
+
+        }
+
     }
 }

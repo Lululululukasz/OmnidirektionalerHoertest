@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Rug.Osc;
-
+/*
 namespace VerarbeitungTest
 {
     internal class OSCReceiverOLD
@@ -70,3 +70,4 @@ namespace VerarbeitungTest
         }
     }
 }
+*/
