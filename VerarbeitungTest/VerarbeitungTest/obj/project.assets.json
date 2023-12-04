@@ -34,19 +34,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\RoToRo\\.nuget\\packages\\": {}
+    "C:\\Users\\RoToRo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\NextcloudFhtemp\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+      "projectUniqueName": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung feature OscRouter\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
       "projectName": "VerarbeitungTest",
-      "projectPath": "E:\\NextcloudFhtemp\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+      "projectPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung feature OscRouter\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
       "packagesPath": "C:\\Users\\RoToRo\\.nuget\\packages\\",
-      "outputPath": "E:\\NextcloudFhtemp\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\obj\\",
+      "outputPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung feature OscRouter\\VerarbeitungTest\\VerarbeitungTest\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\RoToRo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -88,12 +93,30 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.22, 6.0.22]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.22, 6.0.22]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.22, 6.0.22]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.22, 6.0.22]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   },

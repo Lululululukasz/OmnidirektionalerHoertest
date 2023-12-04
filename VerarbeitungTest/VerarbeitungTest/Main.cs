@@ -8,15 +8,21 @@ namespace VerarbeitungTest
 {
     class Main
     {
-        public void run()
+        public static void run()
         {
-            Test t = new Test();
-
-            //Testweise Haupt rutine genauere steuerung der tests hier ggf einfügen
+            //Run Unit Tests
+            OscReceiverTest test1 = new OscReceiverTest();
+            
+            OscRouterTest test2 = new OscRouterTest();
+            //test1.RunTest();
+            test2.RunTest();
+            Thread.Sleep(100);
+            Console.WriteLine("[i] All Tests Done");
+            //Main Loop
             while (true)
             {
-                t.run();
-                Thread.Sleep(25);
+                //Console.WriteLine("Tick");
+                Thread.Sleep(100);
             }
         }
     }

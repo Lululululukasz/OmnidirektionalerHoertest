@@ -1,0 +1,12 @@
+################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+*.vsidx
+*.wsuo
+*.suo
+*.cache
+*.editorconfig
+/VerarbeitungTest/VerarbeitungTest/obj/Debug/*
+/VerarbeitungTest/VerarbeitungTest/obj/Debug/net6.0/VerarbeitungTest.GeneratedMSBuildEditorConfig.editorconfig
+

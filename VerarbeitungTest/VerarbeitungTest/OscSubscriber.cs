@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace VerarbeitungTest
 {
-    internal class Test
+    internal abstract class OscSubscriber
     {
+        public abstract void ReceiveOsc(string data);
     }
 }
