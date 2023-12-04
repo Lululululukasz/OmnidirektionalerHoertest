@@ -4,4 +4,7 @@
 
 *.vsidx
 *.wsuo
+*suo
+*.cache
+*.editorconfig
 /VerarbeitungTest/VerarbeitungTest/obj/Debug/*
