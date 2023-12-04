@@ -19,24 +19,27 @@ namespace VerarbeitungTest
         private List<double> otherGroupData;
         private Random rng;
         Action<Question> viewCallback;
-        public QuestionController()
+        private int currentTestTone;
+        /// <summary>
+        /// Constructor for Standart SoundDomeView
+        /// </summary>
+        public QuestionController(SoundDomeView view)
         {
             otherGroupData = new List<double>();
             rng = new Random();
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-        }
-        /// <summary>
-        /// Constructor for Standart SoundDomeView
-        /// </summary>
-        public QuestionController(SoundDomeView view) : this()
-        {
+            currentTestTone = 0;
             viewCallback = view.askQuestion;
         }
         /// <summary>
         /// Constructor for Custom View Callback
         /// </summary>
-        public QuestionController(Action<Question> callback) : this()
+        public QuestionController(Action<Question> callback)
         {
+            otherGroupData = new List<double>();
+            rng = new Random();
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+            currentTestTone = 0;
             viewCallback = callback;
         }
         public enum QuestionType
@@ -62,7 +65,7 @@ namespace VerarbeitungTest
         /// Generates a Question and saves it
         /// <para>type -> QuestionType:Enum Selects the source of the Questiondata</para>
         /// </summary>
-        public void GenerateQuestion(QuestionType type)
+        public void generateQuestion(QuestionType type)
         {
             switch (type)
             {
@@ -88,7 +91,20 @@ namespace VerarbeitungTest
                             targetDirection = choosenOne;
                         }
                         Question q = new Question();
-                        q.pitch = rng.NextDouble() * 600 + 100;
+                        //generate test Tone
+                        if(currentTestTone < 100)
+                        {
+                            currentTestTone += 10;
+                        }
+                        else if(currentTestTone < 1000)
+                        {
+                            currentTestTone += 100;
+                        }
+                        else if (currentTestTone >= 1000)
+                        {
+                            currentTestTone += 1000;
+                        }
+                        q.pitch = currentTestTone;
                         q.angle = targetDirection;
                         question = q;
                     }
@@ -96,7 +112,20 @@ namespace VerarbeitungTest
                 case QuestionType.Random2D:
                     {
                         Question q = new Question();
-                        q.pitch = rng.NextDouble() * 600 + 100;
+                        //generate test Tone
+                        if (currentTestTone < 100)
+                        {
+                            currentTestTone += 10;
+                        }
+                        else if (currentTestTone < 1000)
+                        {
+                            currentTestTone += 100;
+                        }
+                        else if (currentTestTone >= 1000)
+                        {
+                            currentTestTone += 1000;
+                        }
+                        q.pitch = currentTestTone;
                         q.angle = rng.NextDouble() * 359 + 1;
                         question = q;
                     }
@@ -118,7 +147,7 @@ namespace VerarbeitungTest
         /// <summary>
         /// Checks if any External data is in the Buffer
         /// </summary>
-        public bool ExternalDataAvailable()
+        public bool externalDataAvailable()
         {
             if(otherGroupData.Count == 0)
             {
@@ -129,7 +158,7 @@ namespace VerarbeitungTest
                 return true;
             }
         }
-        public void RouterCallback(string data)
+        public void routerCallback(string data)
         {
             data = data.Replace(',', '.');//regio code formatting
             try
@@ -140,6 +169,13 @@ namespace VerarbeitungTest
 
             }
             
+        }
+        public void resetQuestionController()
+        {
+            otherGroupData = new List<double>();
+            rng = new Random();
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+            currentTestTone = 10;
         }
     }
 }

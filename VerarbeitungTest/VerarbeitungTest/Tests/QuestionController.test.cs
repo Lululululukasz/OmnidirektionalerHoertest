@@ -25,8 +25,8 @@ namespace VerarbeitungTest.Tests
         public void RunTest()
         {
 
-            QuestionController controller = new QuestionController();
-            controller.GenerateQuestion(QuestionController.QuestionType.Random2D);
+            QuestionController controller = new QuestionController(dummyViewCallback);
+            controller.generateQuestion(QuestionController.QuestionType.Random2D);
             Question q = controller.getCurrentQuestion();
             if (q != null && q.pitch != 0 && q.angle != 0)
             {//Test 1 check if controller returns not null and not default object
@@ -38,10 +38,10 @@ namespace VerarbeitungTest.Tests
             }
 
             requieredTests++;
-            controller.RouterCallback("input:0.5");//!!!!!REGIONAL FORMAT FIXEN!!!!!!
-            controller.RouterCallback("input:0,5");
-            controller.RouterCallback("input:180");
-            controller.GenerateQuestion(QuestionController.QuestionType.External);
+            controller.routerCallback("input:0.5");//!!!!!REGIONAL FORMAT FIXEN!!!!!!
+            controller.routerCallback("input:0,5");
+            controller.routerCallback("input:180");
+            controller.generateQuestion(QuestionController.QuestionType.External);
             q = controller.getCurrentQuestion();
             if (Math.Round(q.angle) == 180 && q.pitch > 0)
             {
@@ -53,9 +53,9 @@ namespace VerarbeitungTest.Tests
             }
 
             requieredTests++;
-            controller = new QuestionController();
-            controller.RouterCallback("input:0.5");
-            controller.GenerateQuestion(QuestionController.QuestionType.External);
+            controller = new QuestionController(dummyViewCallback);
+            controller.routerCallback("input:0.5");
+            controller.generateQuestion(QuestionController.QuestionType.External);
             q = controller.getCurrentQuestion();
             if (Math.Round(q.angle) == 180 && q.pitch > 0)
             {
@@ -67,9 +67,9 @@ namespace VerarbeitungTest.Tests
             }
 
             requieredTests++;
-            controller = new QuestionController();
-            controller.RouterCallback("input:0,5");
-            controller.GenerateQuestion(QuestionController.QuestionType.External);
+            controller = new QuestionController(dummyViewCallback);
+            controller.routerCallback("input:0,5");
+            controller.generateQuestion(QuestionController.QuestionType.External);
             q = controller.getCurrentQuestion();
             if (Math.Round(q.angle) == 180 && q.pitch > 0)
             {
@@ -81,9 +81,9 @@ namespace VerarbeitungTest.Tests
             }
 
             requieredTests++;
-            controller = new QuestionController();
-            controller.RouterCallback("input:180");
-            controller.GenerateQuestion(QuestionController.QuestionType.External);
+            controller = new QuestionController(dummyViewCallback);
+            controller.routerCallback("input:180");
+            controller.generateQuestion(QuestionController.QuestionType.External);
             q = controller.getCurrentQuestion();
             if (Math.Round(q.angle) == 180 && q.pitch > 0)
             {
@@ -95,9 +95,9 @@ namespace VerarbeitungTest.Tests
             }
 
             requieredTests++;
-            controller = new QuestionController();
-            controller.RouterCallback("input:1aa8s0");
-            controller.GenerateQuestion(QuestionController.QuestionType.External);
+            controller = new QuestionController(dummyViewCallback);
+            controller.routerCallback("input:1aa8s0");
+            controller.generateQuestion(QuestionController.QuestionType.External);
             q = controller.getCurrentQuestion();
             if (Math.Round(q.angle) == 0 && q.pitch == 0)
             {
@@ -110,12 +110,26 @@ namespace VerarbeitungTest.Tests
 
             requieredTests++;
             controller = new QuestionController(dummyViewCallback);
-            controller.RouterCallback("input:0.5");
-            controller.GenerateQuestion(QuestionController.QuestionType.External);
+            controller.routerCallback("input:0.5");
+            controller.generateQuestion(QuestionController.QuestionType.External);
             controller.askQuestion();
 
-
-
+            requieredTests++;
+            controller = new QuestionController(dummyViewCallback);
+            controller.generateQuestion(QuestionController.QuestionType.Random2D);
+            controller.generateQuestion(QuestionController.QuestionType.Random2D);
+            controller.generateQuestion(QuestionController.QuestionType.Random2D);
+            controller.generateQuestion(QuestionController.QuestionType.Random2D);
+            controller.generateQuestion(QuestionController.QuestionType.Random2D);
+            q = controller.getCurrentQuestion();
+            if (q.pitch == 50)
+            {
+                successfulTests++;
+            }
+            else
+            {
+                Console.WriteLine("[i] Subtest " + requieredTests + " not Passed!");
+            }
 
             //Check Subtests
             if (successfulTests == requieredTests)
