@@ -26,7 +26,9 @@ namespace VerarbeitungTest
             netThread.Start();
             //Console.WriteLine("All init");
         }
-
+        /// <summary>
+        /// Main OSC Networkthread Funktion. Loops in Seperate Thread til the socket is Closed or Throws an Error
+        /// </summary>
         private static void OSCThread()//seperater Thread zum Empfangen von OSC Daten
         {
             try
@@ -63,6 +65,9 @@ namespace VerarbeitungTest
             }
             Console.WriteLine("[i] Network Thread Closed");
         }
+        /// <summary>
+        /// Close Network Connection
+        /// </summary>
         public void Close()
         {
             receiver.Close();

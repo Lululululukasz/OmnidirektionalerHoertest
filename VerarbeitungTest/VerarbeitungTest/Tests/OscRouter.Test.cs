@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VerarbeitungTest
 {
+    /// <summary>
+    /// Test Class for the OscRouter Class
+    /// </summary>
     internal class OscRouterTest
     {
         int passedSubTests = 0;
@@ -24,6 +27,9 @@ namespace VerarbeitungTest
             //Console.WriteLine(data);
             if (data.CompareTo("sampleInput:42") == 0) { passedSubTests++; }
         }
+        /// <summary>
+        /// Start the Test if the Test is Passed it shoud show "Test -> OscRouter : OK"
+        /// </summary>
         public void RunTest()
         {
             OscReceiver dummy = null;

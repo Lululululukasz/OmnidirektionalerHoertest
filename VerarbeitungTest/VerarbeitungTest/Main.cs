@@ -12,15 +12,12 @@ namespace VerarbeitungTest
         {
             //Run Unit Tests
             OscReceiverTest test1 = new OscReceiverTest();
-            Console.WriteLine("[i] Bitte TestSend.py starten");
-            while (!test1.testComplete())
-            {
-                Thread.Sleep(1000);
-            }
+            
             OscRouterTest test2 = new OscRouterTest();
             //test1.RunTest();
             test2.RunTest();
-
+            Thread.Sleep(100);
+            Console.WriteLine("[i] All Tests Done");
             //Main Loop
             while (true)
             {

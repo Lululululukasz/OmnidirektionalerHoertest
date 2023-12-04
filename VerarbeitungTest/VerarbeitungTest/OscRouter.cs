@@ -38,7 +38,11 @@ namespace VerarbeitungTest
             questionSubs = new List<Action<string>>();
             receiver = _receiver;
         }
-
+        /// <summary>
+        /// Adds an Subscriber to the subscriber list.
+        /// _callback -> Function of the Target Subscriber f(string data)
+        /// type -> Enum of the SubscriberType is used for sorting Packages
+        /// </summary>
         public void AddReceiver(Action<string> _callback, SubscriberType type)
         {
             switch (type)//Add the object to the assigned list
@@ -54,7 +58,9 @@ namespace VerarbeitungTest
                     break;
             }
         }
-
+        /// <summary>
+        /// Callback for NetworkThread. Relays Incomming Data to the Predefined Function 
+        /// </summary>
         public void Route(string data)
         {
             string adress = data.Split(",")[0];
@@ -101,7 +107,9 @@ namespace VerarbeitungTest
 
 
         }
-
+        /// <summary>
+        /// Manually Close the NetworkSocket
+        /// </summary>
         public void Close()
         {
             receiver.Close();
