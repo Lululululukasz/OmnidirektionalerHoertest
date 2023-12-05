@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "NUnit/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/nunit.framework.dll": {
+            "related": ".legacy.xml;.xml"
+          },
+          "lib/net6.0/nunit.framework.legacy.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/nunit.framework.dll": {
+            "related": ".legacy.xml;.xml"
+          },
+          "lib/net6.0/nunit.framework.legacy.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
       "Rug.Osc/1.2.5": {
         "type": "package",
         "compile": {
@@ -14,6 +36,32 @@
     }
   },
   "libraries": {
+    "NUnit/4.0.1": {
+      "sha512": "jNTHZ01hJsDNPDSBycoHpavFZUBf9vRVQLCyuo78LRrrFj6Ol/CeqK+NIeTk5d8Eycjk59KseWb7X5Ge6z7CgQ==",
+      "type": "package",
+      "path": "nunit/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGES.md",
+        "LICENSE.txt",
+        "NOTICES.md",
+        "README.md",
+        "THIRD_PARTY_NOTICES.md",
+        "build/NUnit.props",
+        "icon.png",
+        "lib/net462/nunit.framework.dll",
+        "lib/net462/nunit.framework.legacy.dll",
+        "lib/net462/nunit.framework.legacy.xml",
+        "lib/net462/nunit.framework.xml",
+        "lib/net6.0/nunit.framework.dll",
+        "lib/net6.0/nunit.framework.legacy.dll",
+        "lib/net6.0/nunit.framework.legacy.xml",
+        "lib/net6.0/nunit.framework.xml",
+        "nunit.4.0.1.nupkg.sha512",
+        "nunit.nuspec"
+      ]
+    },
     "Rug.Osc/1.2.5": {
       "sha512": "nbujIPTk+QO90qv+U9E5reGFEBDpu8c4I65dkVxR4/xBL+WXUzUjvfBm5mEmtRRqFeoqfK7VLje+FEdz/FmoTg==",
       "type": "package",
@@ -30,6 +78,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "NUnit >= 4.0.1",
       "Rug.Osc >= 1.2.5"
     ]
   },
@@ -40,11 +89,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung feature OscRouter\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+      "projectUniqueName": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
       "projectName": "VerarbeitungTest",
-      "projectPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung feature OscRouter\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+      "projectPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
       "packagesPath": "C:\\Users\\RoToRo\\.nuget\\packages\\",
-      "outputPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung feature OscRouter\\VerarbeitungTest\\VerarbeitungTest\\obj\\",
+      "outputPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -77,6 +126,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "NUnit": {
+            "target": "Package",
+            "version": "[4.0.1, )"
+          },
           "Rug.Osc": {
             "target": "Package",
             "version": "[1.2.5, )"

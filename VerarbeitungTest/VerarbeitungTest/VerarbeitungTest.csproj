@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NUnit" Version="4.0.1" />
     <PackageReference Include="Rug.Osc" Version="1.2.5" />
   </ItemGroup>
 

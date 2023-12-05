@@ -8,5 +8,13 @@ namespace VerarbeitungTest
 {
     internal class Test
     {
+        public int mistakes;
+        public List<Question> questions;
+
+        public Test()
+        {
+            this.mistakes = 0;
+            this.questions = new List<Question>();
+        }
     }
 }
