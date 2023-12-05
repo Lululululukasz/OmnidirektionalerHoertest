@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HGyXLxvGnHc3Vb6z4I0X5pnDJUsMq5ufouhsphdA6/lQiVN5AjorEm8GZnl8jJravAyD4Vzdy6zzjhyhTyI/ug==",
+  "dgSpecHash": "0czDz2W9BKSmhtpqmKSo1gWv8xzHZi+wJ4ywO5bl1G9LFR4GoZO2H2JT4xdDQUtMEqCYZCjqZoQLC+rJGXjPxg==",
   "success": true,
-  "projectFilePath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung Questioncontroller\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+  "projectFilePath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung feature OscRouter\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\RoToRo\\.nuget\\packages\\rug.osc\\1.2.5\\rug.osc.1.2.5.nupkg.sha512",
     "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",

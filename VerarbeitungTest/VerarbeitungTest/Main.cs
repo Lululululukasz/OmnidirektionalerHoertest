@@ -9,18 +9,25 @@ namespace VerarbeitungTest
 {
     class Main
     {
-        public void run()
+        public static void run()
         {
-            
-            QuestionControllerTest questionControllertest = new QuestionControllerTest();
-            questionControllertest.RunTest();
-            
-            
 
-            //Testweise Haupt rutine genauere steuerung der tests hier ggf einfügen
+            //Run Unit Tests
+            QuestionControllerTest questionControllertest = new QuestionControllerTest();
+            questionControllertest.RunTest(); 
+            OscReceiverTest test1 = new OscReceiverTest();
+            
+            OscRouterTest test2 = new OscRouterTest();
+            //test1.RunTest();
+            test2.RunTest();
+            Thread.Sleep(100);
+            Console.WriteLine("[i] All Tests Done");
+            //Main Loop
+
             while (true)
             {
-                Thread.Sleep(25);
+                //Console.WriteLine("Tick");
+                Thread.Sleep(100);
             }
         }
     }

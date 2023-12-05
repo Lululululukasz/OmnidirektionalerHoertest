@@ -8,6 +8,7 @@ using Rug.Osc;
 /*
 namespace VerarbeitungTest
 {
+    
     internal class OSCReceiverOLD
     {
         //OSC Receiver klasse empfängt in seperaten thread OSC Daten
@@ -54,7 +55,7 @@ namespace VerarbeitungTest
             }
         }
 
-        public OSCReceiver(Test callback,int port = 9000) {
+        public OSCReceiverOLD(Test callback,int port = 9000) {
             this.port = port;
             Thread t = new Thread(new ThreadStart(OSCThread));
             Packages = new List<OscPacket>();
