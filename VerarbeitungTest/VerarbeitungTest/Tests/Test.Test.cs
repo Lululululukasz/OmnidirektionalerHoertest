@@ -24,7 +24,7 @@ namespace VerarbeitungTest
         [Test]
         public void testInitQuestions()
         {
-            Assert.That(test.questions, Is.Empty);
+            Assert.That(test.offset, Is.Empty);
         }
     }
 }

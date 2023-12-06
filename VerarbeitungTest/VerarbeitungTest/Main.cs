@@ -11,7 +11,9 @@ namespace VerarbeitungTest
     {
         public static void run()
         {
-
+            TestControllerTest testController = new TestControllerTest();
+            testController.TestStartCallibration();
+            testController.TestStartTest();
             //Run Unit Tests
             QuestionControllerTest questionControllertest = new QuestionControllerTest();
             questionControllertest.RunTest(); 
