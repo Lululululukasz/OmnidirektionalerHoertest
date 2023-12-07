@@ -132,6 +132,10 @@ namespace VerarbeitungTest
                     break;
             }
         }
+        public void generateQuestion(Question q)
+        {
+            question = q;
+        }
         public Question getCurrentQuestion()
         {
             if(question == null)

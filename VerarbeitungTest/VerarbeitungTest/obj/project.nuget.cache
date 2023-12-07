@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0czDz2W9BKSmhtpqmKSo1gWv8xzHZi+wJ4ywO5bl1G9LFR4GoZO2H2JT4xdDQUtMEqCYZCjqZoQLC+rJGXjPxg==",
+  "dgSpecHash": "KVpKLrwieU2HcZraylmkNQ1bC+RUUfgvI4qWOpXzxOj9S1NldPVasR5YFCVXkZ1YuoLm3yB4HXPYVa0DY0yTGg==",
   "success": true,
-  "projectFilePath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung feature OscRouter\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+  "projectFilePath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\RoToRo\\.nuget\\packages\\nunit\\4.0.1\\nunit.4.0.1.nupkg.sha512",
     "C:\\Users\\RoToRo\\.nuget\\packages\\rug.osc\\1.2.5\\rug.osc.1.2.5.nupkg.sha512",
     "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
     "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",

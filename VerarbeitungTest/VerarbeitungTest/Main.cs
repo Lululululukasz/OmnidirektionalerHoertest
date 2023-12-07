@@ -13,6 +13,10 @@ namespace VerarbeitungTest
         {
 
             //Run Unit Tests    
+            TestControllerTest testController = new TestControllerTest();
+            testController.TestStartCallibration();
+            testController.TestStartTest();
+
             QuestionControllerTest questionControllertest = new QuestionControllerTest();
             questionControllertest.RunTest(); 
             OscReceiverTest test1 = new OscReceiverTest();
