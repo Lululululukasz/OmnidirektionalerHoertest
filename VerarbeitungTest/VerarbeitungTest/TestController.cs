@@ -156,6 +156,7 @@ namespace VerarbeitungTest
         }
         public void finishTest()
         {
+            GuiController.SendResultToGui(test);
             testStarted = false;
         }
         public Test getTestResult()

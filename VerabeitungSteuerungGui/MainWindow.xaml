@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VerabeitungSteuerungGui"
         mc:Ignorable="d"
-        Title="Test Manager Gui" Height="405" Width="542">
+        Title="Test Manager Gui" Height="405" Width="542"
+        Closing="Window_Closing">
     <Grid Height="389" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="71*"/>
@@ -15,6 +16,7 @@
         <Button Content="Start Callibration" HorizontalAlignment="Left" Height="28" Margin="311,78,0,0" VerticalAlignment="Top" Width="126" Grid.Column="1" Click="Button_Click_StartCallibration"/>
         <Button Content="Stop Test" HorizontalAlignment="Left" Height="28" Margin="311,337,0,0" VerticalAlignment="Top" Width="126" Grid.Column="1" Click="Button_Click_StopTest"/>
         <TextBlock x:Name="OutputTextBox" HorizontalAlignment="Left" Height="325" Margin="42,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" Background="LightGray" Grid.ColumnSpan="2" />
+        <Button Content="Clear Test Log" HorizontalAlignment="Left" Height="28" Margin="311,304,0,0" VerticalAlignment="Top" Width="126" Grid.Column="1" Click="Button_ClearTestLog"/>
 
     </Grid>
 </Window>

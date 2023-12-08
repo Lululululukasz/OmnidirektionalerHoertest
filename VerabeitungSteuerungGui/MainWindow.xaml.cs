@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using Rug.Osc;
+using System.ComponentModel;
 
 namespace VerabeitungSteuerungGui
 {
@@ -57,6 +58,16 @@ namespace VerabeitungSteuerungGui
         private void Button_Click_StopTest(object sender, RoutedEventArgs e)
         {
             this.sender.Send(new OscMessage("/I1-2/mouse/click", 3));
+        }
+        private void Button_ClearTestLog(object sender, RoutedEventArgs e)
+        {
+            OutputTextBox.Text = "";
+        }
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            this.sender.Close();
+            receiver.Close();
+            
         }
         private void OscReceiverThread()
         {

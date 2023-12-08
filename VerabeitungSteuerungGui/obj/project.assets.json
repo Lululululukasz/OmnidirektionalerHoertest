@@ -40,11 +40,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\NextCloud\\FH22\\SEG\\Projekt\\VerabeitungSteuerungGui\\VerabeitungSteuerungGui\\VerabeitungSteuerungGui.csproj",
+      "projectUniqueName": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerabeitungSteuerungGui\\VerabeitungSteuerungGui.csproj",
       "projectName": "VerabeitungSteuerungGui",
-      "projectPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\VerabeitungSteuerungGui\\VerabeitungSteuerungGui\\VerabeitungSteuerungGui.csproj",
+      "projectPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerabeitungSteuerungGui\\VerabeitungSteuerungGui.csproj",
       "packagesPath": "C:\\Users\\RoToRo\\.nuget\\packages\\",
-      "outputPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\VerabeitungSteuerungGui\\VerabeitungSteuerungGui\\obj\\",
+      "outputPath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerabeitungSteuerungGui\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
