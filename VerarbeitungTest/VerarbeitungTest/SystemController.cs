@@ -20,13 +20,18 @@ namespace VerarbeitungTest
             testController = new TestController(calibrationOffset, soundDomeView);
         }
 
-        public SystemController()
+        public void callback(string s) { }
+    }
+
+    public SystemController()
         {
             OscRouter router = new OscRouter();
-            router.AddReceiver((message) =>
+            router.AddReceiver(SystemController.callback(click), OscRouter.SubscriberType.System);
+            /*router.AddReceiver((message) =>
             {
                 if (message == "click:1") cancelTest();
-            }, SubscriberType.System);
+            }, SubscriberType.System);*/
         }
-    }
+
+
 }
