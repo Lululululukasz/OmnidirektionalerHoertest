@@ -24,6 +24,17 @@ namespace VerarbeitungTest
             test2.RunTest();
             Thread.Sleep(100);
             SaveTestResultTest.RunTest();
+            Console.WriteLine("[i] Testing Sound Output");
+
+            SoundDomeView sdv = new SoundDomeView();
+            Question q = new Question();
+            q.angle = 0;
+            q.pitch = 400;
+
+            sdv.askQuestion(q);
+            sdv.giveFeedback(SoundDomeView.FeedbackType.rise);
+            sdv.giveFeedback(SoundDomeView.FeedbackType.fall);
+            sdv.giveFeedback(SoundDomeView.FeedbackType.beep);
 
             Console.WriteLine("[i] All Tests Done");
             //Main Loop
