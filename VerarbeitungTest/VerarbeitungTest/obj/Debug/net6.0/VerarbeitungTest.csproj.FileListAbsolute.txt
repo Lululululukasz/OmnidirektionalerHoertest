@@ -65,3 +65,9 @@ D:\NextCloud\FH22\SEG\Projekt\verabeitung feature OscRouter\VerarbeitungTest\Ver
 D:\NextCloud\FH22\SEG\Projekt\verabeitung feature OscRouter\VerarbeitungTest\VerarbeitungTest\obj\Debug\net6.0\ref\VerarbeitungTest.dll
 D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\nunit.framework.dll
 D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\nunit.framework.legacy.dll
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\NAudio.dll
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\NAudio.Asio.dll
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\NAudio.Core.dll
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\NAudio.Midi.dll
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\NAudio.Wasapi.dll
+D:\NextCloud\FH22\SEG\Projekt\verabeitung\VerarbeitungTest\VerarbeitungTest\bin\Debug\net6.0\NAudio.WinMM.dll

@@ -1,4 +1,6 @@
-﻿using Rug.Osc;
+﻿using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
+using Rug.Osc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -132,4 +134,5 @@ namespace VerarbeitungTest
                 Thread.Sleep(100);
             }
         }
+    }
 }
