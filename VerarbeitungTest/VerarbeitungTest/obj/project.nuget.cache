@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JJ8hC6+PW0ZHJcYL9BNF6Wbe08KqD6sTUd1Nr9JE+mC446Dozm7dExHWxfOFBFeps+Day2a2qBQxznRkpHKWGA==",
+  "dgSpecHash": "T6ZnMTouO2p8XwjXHScaufhWhzNbpfKqZBxaPRheDJa3jyXvJmmgk6faVjPyxXfovcL0tvaXNehxzXj/LDXeYg==",
   "success": true,
-  "projectFilePath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitung\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
+  "projectFilePath": "D:\\NextCloud\\FH22\\SEG\\Projekt\\verabeitungSoundDomeViewBAK\\VerarbeitungTest\\VerarbeitungTest\\VerarbeitungTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\RoToRo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
