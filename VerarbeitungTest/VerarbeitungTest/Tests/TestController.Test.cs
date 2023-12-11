@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace VerarbeitungTest
 {
-    //[TestFixture]
+    [TestFixture]
     internal class TestControllerTest
     {
         Question viewQuestion;
@@ -16,7 +16,7 @@ namespace VerarbeitungTest
         TestController testCtlTest;
         static Object _lock = new Object();
         
-        //[Test]
+        [Test]
         public void TestStartCallibration()
         {
             OscRouter router = new OscRouter();

@@ -18,22 +18,28 @@ namespace VerarbeitungTest
 
         void startTest()
         {
-            testController = new TestController(soundDomeView.askQuestion, router, calibrationOffset);
+            testController.startTest();
         }
 
-        void cancelTest()
+        void cancelTest() {
+            testController.finishTest();
+        }
+
+        void startCalibration()
         {
-
+            testController.startCallibration();
         }
-
 
         public SystemController()
         {
+            testController = new TestController(soundDomeView.askQuestion, router, calibrationOffset);
             router = new OscRouter();
            // router.AddReceiver(SystemController.callback(click), OscRouter.SubscriberType.System);
             router.AddReceiver((message) =>
             {
-                if (message == "click:1") cancelTest();
+                if (message == "click:1") startTest();
+                else if (message == "click:2") startCalibration();
+                else if (message == "click:3") cancelTest();
             }, SubscriberType.System);
         }
     }
