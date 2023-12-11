@@ -14,24 +14,28 @@ namespace VerarbeitungTest
         double calibrationOffset;
         TestController testController;
         SoundDomeView soundDomeView;
+        OscRouter router;
 
         void startTest()
         {
-            testController = new TestController(calibrationOffset, soundDomeView);
+            testController = new TestController(soundDomeView.askQuestion, router, calibrationOffset);
         }
 
-        public void callback(string s) { }
-    }
-
-    public SystemController()
+        void cancelTest()
         {
-            OscRouter router = new OscRouter();
-            router.AddReceiver(SystemController.callback(click), OscRouter.SubscriberType.System);
-            /*router.AddReceiver((message) =>
+
+        }
+
+
+        public SystemController()
+        {
+            router = new OscRouter();
+           // router.AddReceiver(SystemController.callback(click), OscRouter.SubscriberType.System);
+            router.AddReceiver((message) =>
             {
                 if (message == "click:1") cancelTest();
-            }, SubscriberType.System);*/
+            }, SubscriberType.System);
         }
-
+    }
 
 }
