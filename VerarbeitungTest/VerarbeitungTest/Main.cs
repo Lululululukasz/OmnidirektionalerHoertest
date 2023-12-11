@@ -13,22 +13,12 @@ namespace VerarbeitungTest
         {
 
             //Run Unit Tests    
-            TestControllerTest testController = new TestControllerTest();
-            testController.TestStartCallibration();
-            testController.TestStartTest();
+            //TestControllerTest testController = new TestControllerTest();
+            //testController.TestStartCallibration();
+            //testController.TestStartTest();
 
 
-            SoundDomeView sdv = new SoundDomeView();
-            Question q = new Question();
-            q.angle = 0;
-            q.pitch = 400;
-
-            sdv.askQuestion(q);
-            sdv.giveFeedback(SoundDomeView.FeedbackType.rise);
-            sdv.giveFeedback(SoundDomeView.FeedbackType.fall);
-            sdv.giveFeedback(SoundDomeView.FeedbackType.beep);
-
-            Console.WriteLine("[i] All Tests Done");
+            
             //Main Loop
 
             while (true)
