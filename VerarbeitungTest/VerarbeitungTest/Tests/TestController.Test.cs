@@ -12,7 +12,7 @@ namespace VerarbeitungTest
     internal class TestControllerTest
     {
         Question viewQuestion;
-        static TestController testCtlCallibration;
+        static CalibrationController testCtlCallibration;
         TestController testCtlTest;
         static Object _lock = new Object();
         
@@ -20,21 +20,14 @@ namespace VerarbeitungTest
         public void TestStartCallibration()
         {
             OscRouter router = new OscRouter();
-            testCtlCallibration = new TestController(SoundDomeViewCallback, router, 0);
+            testCtlCallibration = new CalibrationController(SoundDomeViewCallback, router);
             Thread calThread = new Thread(new ThreadStart(SenderThreadCallibration));
             calThread.Start();
-            if(testCtlCallibration.startCallibration() == 0)
-            {
-                Console.WriteLine("Test -> TestContoller 1 : OK");
-            }
-            else
-            {
-                Console.WriteLine("Test -> TestContoller 1 : FAILED");
-            }
-            //Assert.That(, Is.Zero);
+            Assert.That(testCtlCallibration.startCallibration(), Is.Zero);
             testCtlCallibration.finishTest();
             router.Close();
         }
+        [Test]
         public void TestStartTest()
         {
             OscRouter router = new OscRouter();
@@ -58,21 +51,9 @@ namespace VerarbeitungTest
             answer = testCtlTest.getQuestionController().getCurrentQuestion().angle;
             testCtlTest.routerCallback("alpha:" + (answer + 50));
             Thread.Sleep(1000);
-            if (testCtlTest.isTestFinished())
-            {
-                if(testCtlTest.getTestResult().mistakes == 3 && testCtlTest.getTestResult().offset[0] == 0)
-                {
-                    Console.WriteLine("Test -> TestContoller 2 : OK");
-                }
-                else
-                {
-                    Console.WriteLine("Test -> TestContoller 2 : FAILED Test Result not matching");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Test -> TestContoller 2 : FAILED Test Didnt finished "+ testCtlTest.getTestResult().mistakes);
-            }
+            Assert.That(testCtlTest.isTestFinished(), Is.True);
+            Assert.That(testCtlTest.getTestResult().mistakes, Is.EqualTo(3));
+            Assert.That(testCtlTest.getTestResult().offset[0], Is.Zero);
             router.Close();
         }
         public void SoundDomeViewCallback(Question question)

@@ -17,14 +17,6 @@ namespace VerarbeitungTest
             testController.TestStartCallibration();
             testController.TestStartTest();
 
-            QuestionControllerTest questionControllertest = new QuestionControllerTest();
-            questionControllertest.RunTest(); 
-            OscReceiverTest test1 = new OscReceiverTest();
-            OscRouterTest test2 = new OscRouterTest();
-            test2.RunTest();
-            Thread.Sleep(100);
-            SaveTestResultTest.RunTest();
-            Console.WriteLine("[i] Testing Sound Output");
 
             SoundDomeView sdv = new SoundDomeView();
             Question q = new Question();
