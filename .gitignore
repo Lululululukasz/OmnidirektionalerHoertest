@@ -397,3 +397,11 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+*.vsidx
+*.wsuo
+*.suo
+*.cache
+*.editorconfig
+/VerarbeitungTest/VerarbeitungTest/obj/Debug/*
+/VerarbeitungTest/VerarbeitungTest/obj/Debug/net6.0/VerarbeitungTest.GeneratedMSBuildEditorConfig.editorconfig
+
