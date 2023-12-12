@@ -21,7 +21,6 @@ namespace VerarbeitungTest
 
         void startTest()
         {
-            Console.WriteLine(1);
             calibrationController = new CalibrationController(soundDomeView.askQuestion, router);
             calibrationOffset = calibrationController.startCallibration();
             testController = new TestController(soundDomeView.askQuestion, router, calibrationOffset);
@@ -38,7 +37,6 @@ namespace VerarbeitungTest
             soundDomeView = new SoundDomeView("192.168.0.80");
             calibrationOffset = 0;
             router = new OscRouter();
-           // router.AddReceiver(SystemController.callback(click), OscRouter.SubscriberType.System);
             router.AddReceiver((message) =>
             {
                 if (message == "click:1") startTest();
