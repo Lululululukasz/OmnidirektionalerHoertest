@@ -63,10 +63,12 @@ namespace VerarbeitungTest
         /// </summary>
         public void Route(string data)
         {
+            Console.WriteLine(data);
+
             string adress = data.Split(",")[0];
             string value = data.Split(",")[1];
 
-            if(adress.Split("/")[1].CompareTo("I1-2") == 0) //own group data
+            if (adress.Split("/")[1].CompareTo("I1-2") == 0) //own group data
             {
                 switch (adress.Split("/")[3])
                 {
