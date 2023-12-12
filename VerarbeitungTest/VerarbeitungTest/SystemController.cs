@@ -32,6 +32,7 @@ namespace VerarbeitungTest
         public SystemController()
         {
             //in case someone cancels a test before starting it
+            calibrationOffset = 0;
             testController = new TestController(soundDomeView.askQuestion, router, calibrationOffset);
             router = new OscRouter();
            // router.AddReceiver(SystemController.callback(click), OscRouter.SubscriberType.System);
