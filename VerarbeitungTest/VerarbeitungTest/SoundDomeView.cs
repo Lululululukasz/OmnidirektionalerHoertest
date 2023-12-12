@@ -16,7 +16,12 @@ namespace VerarbeitungTest
         {
             rise,
             fall,
-            beep
+            beep,
+            start_test,
+            test_passed,
+            test_not_passed,
+            start_callibration,
+            callibration_passed
         }
 
 
@@ -24,11 +29,20 @@ namespace VerarbeitungTest
         private static Thread soundThread;
         private List<Question> QuestionQueue;
         private List<FeedbackType> FeedbackQueue;
-
-        public SoundDomeView()
+        private Dictionary<FeedbackType,Mp3FileReader> mp3Dictionary;
+        private string ip;
+        public SoundDomeView(string soundDomeIp)
         {
+            ip = soundDomeIp;
             QuestionQueue = new List<Question>();
             FeedbackQueue = new List<FeedbackType>();
+            mp3Dictionary = new Dictionary<FeedbackType, Mp3FileReader>();
+            //Load mp3 files
+            mp3Dictionary[FeedbackType.start_test] = new Mp3FileReader("audio/start-test.mp3");
+            mp3Dictionary[FeedbackType.start_callibration] = new Mp3FileReader("audio/start-callibration.mp3");
+            mp3Dictionary[FeedbackType.test_passed] = new Mp3FileReader("audio/Test-Passed.mp3");
+            mp3Dictionary[FeedbackType.test_not_passed] = new Mp3FileReader("audio/test-not-passed.mp3");
+            mp3Dictionary[FeedbackType.callibration_passed] = new Mp3FileReader("audio/callibration-passed.mp3");
             soundThread = new Thread(new ThreadStart(SoundOSCThread));
             _lock = new Object();
             soundThread.Start();
@@ -41,6 +55,10 @@ namespace VerarbeitungTest
         {
             FeedbackQueue.Add(f);
         }
+        public Dictionary<FeedbackType,Mp3FileReader> getMp3Dictionary()
+        {
+            return mp3Dictionary;
+        }
         private void SoundOSCThread()
         {
             while (true)
@@ -52,7 +70,7 @@ namespace VerarbeitungTest
                         Question currentQuestion = QuestionQueue[0];
                         QuestionQueue.RemoveAt(0);
 
-                        OscSender sender = new OscSender(IPAddress.Parse("127.0.0.1"), 9000);
+                        OscSender sender = new OscSender(IPAddress.Parse(ip), 9000);
                         sender.Connect();
                         sender.Send(new OscMessage("/adm/obj/1/azim", currentQuestion.angle - 180));
                         sender.Send(new OscMessage("/adm/obj/1/elev", 0));
@@ -117,6 +135,14 @@ namespace VerarbeitungTest
                                     Type = SignalGeneratorType.Sweep,
                                     SweepLengthSecs = 0.2
                                 }.Take(TimeSpan.FromSeconds(1));
+                                break;
+                            default:
+                                if (mp3Dictionary.ContainsKey(currentFeedback))
+                                {
+                                    fbck = mp3Dictionary[currentFeedback].ToSampleProvider();
+
+                                }
+                                
                                 break;
                         }
                         using (var wo = new WaveOutEvent())

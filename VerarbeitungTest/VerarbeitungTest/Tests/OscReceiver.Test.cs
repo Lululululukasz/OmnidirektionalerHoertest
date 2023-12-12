@@ -54,6 +54,7 @@ namespace VerarbeitungTest
                 Assert.That(receivedDebugPacks, Is.EqualTo(10));
                 Assert.That(receivedJibberish, Is.Zero);
             });
+            sender.Close();
         }
     }
 }
