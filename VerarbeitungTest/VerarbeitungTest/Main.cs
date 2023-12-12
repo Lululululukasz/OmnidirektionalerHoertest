@@ -1,6 +1,8 @@
+using Rug.Osc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using VerarbeitungTest.Tests;
@@ -17,7 +19,7 @@ namespace VerarbeitungTest
             //testController.TestStartCallibration();
             //testController.TestStartTest();
 
-
+            SystemController controller = new SystemController();
             
             //Main Loop
 
