@@ -12,6 +12,7 @@ namespace VerarbeitungTest
         protected double calibrationOffset;
         protected QuestionController questionController;
         protected Action<Question> soundDomeView;
+        protected Action<SoundDomeView.FeedbackType> soundDomeViewFeedback;
         protected Test test;
         protected OscRouter router;
         protected bool testStarted;
@@ -19,7 +20,7 @@ namespace VerarbeitungTest
         protected bool callibrationRunning;
         protected double callibrationBuffer;
         protected int callibrations = 0;
-        public TestController(Action<Question> viewCallback, OscRouter router, double callibration)
+        public TestController(Action<Question> viewCallback, Action<SoundDomeView.FeedbackType> feedbackCallback, OscRouter router, double callibration)
         {
             this.router = router;
             calibrationOffset = callibration;
@@ -30,11 +31,15 @@ namespace VerarbeitungTest
             router.AddReceiver(questionController.routerCallback, OscRouter.SubscriberType.Question);
             test = new Test();
             soundDomeView = viewCallback;
+            soundDomeViewFeedback = feedbackCallback;
         }
         public void startTest()
         {
+            soundDomeViewFeedback(SoundDomeView.FeedbackType.start_test);
+            Thread.Sleep(2000);
             testStarted = true;
             generateQuestion();
+            soundDomeView(questionController.getCurrentQuestion());
         }
         private double checkAnswerOffset(double answer)
         {
@@ -84,8 +89,9 @@ namespace VerarbeitungTest
                     question.angle = answer;
                     question.pitch = answer == -1 ? 50 : 1200;
                     soundDomeView(question);
-                    Thread.Sleep(500);
+                    //Thread.Sleep(1000);
                     generateQuestion();
+                    soundDomeView(questionController.getCurrentQuestion());
                 }
                 
                 
@@ -99,6 +105,7 @@ namespace VerarbeitungTest
         }
         public void finishTest()
         {
+            soundDomeViewFeedback(SoundDomeView.FeedbackType.test_passed);
             GuiController.SendResultToGui(test);
             testStarted = false;
         }

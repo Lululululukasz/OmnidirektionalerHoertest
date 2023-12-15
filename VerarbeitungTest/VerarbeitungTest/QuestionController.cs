@@ -28,7 +28,7 @@ namespace VerarbeitungTest
             otherGroupData = new List<double>();
             rng = new Random();
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-            currentTestTone = 0;
+            currentTestTone = 100;
             viewCallback = view.askQuestion;
         }
         /// <summary>
@@ -39,7 +39,7 @@ namespace VerarbeitungTest
             otherGroupData = new List<double>();
             rng = new Random();
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-            currentTestTone = 0;
+            currentTestTone = 100;
             viewCallback = callback;
         }
         public enum QuestionType

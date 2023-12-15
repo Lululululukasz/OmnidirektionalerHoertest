@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Reflection;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,7 +33,7 @@ namespace VerarbeitungTest
         private List<FeedbackType> FeedbackQueue;
         private Dictionary<FeedbackType,Mp3FileReader> mp3Dictionary;
         private string ip;
-        public SoundDomeView(string soundDomeIp)
+        public SoundDomeView(string soundDomeIp = "127.0.0.1")
         {
             ip = soundDomeIp;
             QuestionQueue = new List<Question>();
@@ -61,6 +63,8 @@ namespace VerarbeitungTest
         }
         private void SoundOSCThread()
         {
+            OscSender sender = new OscSender(IPAddress.Parse(ip), 9006);
+            sender.Connect();
             while (true)
             {
                 lock (_lock)
@@ -69,11 +73,10 @@ namespace VerarbeitungTest
                     {
                         Question currentQuestion = QuestionQueue[0];
                         QuestionQueue.RemoveAt(0);
-
-                        OscSender sender = new OscSender(IPAddress.Parse(ip), 9000);
-                        sender.Connect();
                         sender.Send(new OscMessage("/adm/obj/1/azim", currentQuestion.angle - 180));
+                        Console.WriteLine("/adm/obj/1/azim" + (currentQuestion.angle - 180));
                         sender.Send(new OscMessage("/adm/obj/1/elev", 0));
+                        sender.Send(new OscMessage("/adm/obj/1/dist", 0.8));
                         double frequency = currentQuestion.pitch;
                         var sine3Seconds = new SignalGenerator()
                         {

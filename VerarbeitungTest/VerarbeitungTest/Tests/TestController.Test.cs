@@ -20,7 +20,7 @@ namespace VerarbeitungTest
         public void TestStartCallibration()
         {
             OscRouter router = new OscRouter();
-            testCtlCallibration = new CalibrationController(SoundDomeViewCallback, router);
+            testCtlCallibration = new CalibrationController(SoundDomeViewCallback, SoundDomeViewCallbackFeedack, router);
             Thread calThread = new Thread(new ThreadStart(SenderThreadCallibration));
             calThread.Start();
             Assert.That(testCtlCallibration.startCallibration(), Is.Zero);
@@ -31,7 +31,7 @@ namespace VerarbeitungTest
         public void TestStartTest()
         {
             OscRouter router = new OscRouter();
-            testCtlTest = new TestController(SoundDomeViewCallbackTest, router, 0);
+            testCtlTest = new TestController(SoundDomeViewCallbackTest, SoundDomeViewCallbackFeedack, router, 0);
             testCtlTest.startTest();
             double answer = testCtlTest.getQuestionController().getCurrentQuestion().angle;
             testCtlTest.routerCallback("alpha:"+answer);
@@ -63,6 +63,10 @@ namespace VerarbeitungTest
         public void SoundDomeViewCallbackTest(Question question)
         {
             
+        }
+        public void SoundDomeViewCallbackFeedack(SoundDomeView.FeedbackType fbck)
+        {
+
         }
         public void SenderThreadCallibration()
         {

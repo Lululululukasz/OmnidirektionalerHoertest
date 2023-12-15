@@ -9,13 +9,15 @@ namespace VerarbeitungTest
 {
     internal class CalibrationController : TestController
     {
-        public CalibrationController(Action<Question> viewCallback, OscRouter router): base(viewCallback,router,0)
+        public CalibrationController(Action<Question> viewCallback, Action<SoundDomeView.FeedbackType> feedbackCallback, OscRouter router): base(viewCallback, feedbackCallback, router,0)
         {
             
         }
 
         public double startCallibration()
         {
+            soundDomeViewFeedback(SoundDomeView.FeedbackType.start_callibration);
+            Thread.Sleep(2000);
             double cal = 0;
             router.AddReceiver(routerCallibrationCallback, OscRouter.SubscriberType.Test);
             callibrationBuffer = 0;
@@ -29,10 +31,11 @@ namespace VerarbeitungTest
             long timeoutTimer = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
             while (callibrationRunning && (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - timeoutTimer < 30000)//timeout for callibration if no inputs happen
             {
-
+                Thread.Sleep(500);
             }
             cal = callibrationBuffer / 4;
             callibrationRunning = false;
+            soundDomeViewFeedback(SoundDomeView.FeedbackType.callibration_passed);
             return cal;
         }
 
