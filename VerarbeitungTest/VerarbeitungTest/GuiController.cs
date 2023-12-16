@@ -13,7 +13,7 @@ namespace VerarbeitungTest
     {
         public static void SendResultToGui(Test test)
         {
-
+            
             OscSender sender = new OscSender(IPAddress.Parse("127.0.0.1"), 10000);
             sender.Connect();
             sender.Send(new OscMessage("/I1-2/mouse/Test_Mistakes", test.mistakes));

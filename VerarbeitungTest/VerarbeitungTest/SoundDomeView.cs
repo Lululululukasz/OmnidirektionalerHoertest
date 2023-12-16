@@ -33,8 +33,10 @@ namespace VerarbeitungTest
         private List<FeedbackType> FeedbackQueue;
         private Dictionary<FeedbackType,Mp3FileReader> mp3Dictionary;
         private string ip;
+        private OscSender sender;
         public SoundDomeView(string soundDomeIp = "127.0.0.1")
         {
+            sender = new OscSender(IPAddress.Parse(soundDomeIp), 9001);
             ip = soundDomeIp;
             QuestionQueue = new List<Question>();
             FeedbackQueue = new List<FeedbackType>();
@@ -51,6 +53,10 @@ namespace VerarbeitungTest
         }
         public void askQuestion(Question question)
         {
+            sender.Send(new OscMessage("/adm/obj/1/azim", (float)(question.angle - 180)));
+            sender.Send(new OscMessage("/adm/obj/1/elev", (float)0.0));
+            sender.Send(new OscMessage("/adm/obj/1/dist", (float)0.8));
+            
             QuestionQueue.Add(question);
         }
         public void giveFeedback(FeedbackType f)
@@ -63,7 +69,8 @@ namespace VerarbeitungTest
         }
         private void SoundOSCThread()
         {
-            OscSender sender = new OscSender(IPAddress.Parse(ip), 9006);
+            
+            double lastAngle = 0;
             sender.Connect();
             while (true)
             {
@@ -73,10 +80,9 @@ namespace VerarbeitungTest
                     {
                         Question currentQuestion = QuestionQueue[0];
                         QuestionQueue.RemoveAt(0);
-                        sender.Send(new OscMessage("/adm/obj/1/azim", currentQuestion.angle - 180));
-                        Console.WriteLine("/adm/obj/1/azim" + (currentQuestion.angle - 180));
-                        sender.Send(new OscMessage("/adm/obj/1/elev", 0));
-                        sender.Send(new OscMessage("/adm/obj/1/dist", 0.8));
+                        lastAngle = currentQuestion.angle;
+                        Console.WriteLine("setAngle " + (lastAngle));
+                        
                         double frequency = currentQuestion.pitch;
                         var sine3Seconds = new SignalGenerator()
                         {
@@ -160,7 +166,8 @@ namespace VerarbeitungTest
 
                     }
                 }
-                Thread.Sleep(100);
+                
+                Thread.Sleep(50);
             }
         }
     }

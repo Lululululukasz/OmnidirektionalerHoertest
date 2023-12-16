@@ -88,7 +88,7 @@ namespace VerarbeitungTest
                     Question question = new Question();
                     question.angle = answer;
                     question.pitch = answer == -1 ? 50 : 1200;
-                    soundDomeView(question);
+                    //soundDomeView(question);
                     //Thread.Sleep(1000);
                     generateQuestion();
                     soundDomeView(questionController.getCurrentQuestion());
