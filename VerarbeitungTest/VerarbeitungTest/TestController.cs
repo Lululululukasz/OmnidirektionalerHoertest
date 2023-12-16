@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,11 +63,15 @@ namespace VerarbeitungTest
                 data = data.Replace(',', '.');//regio code formatting
                 string inputType = data.Split(':')[0];
                 string answerstr = data.Split(":")[1];
+                answerstr = answerstr.Remove(answerstr.Length - 1);
                 if (inputType.CompareTo("alpha") == 0)
                 {
                     try
                     {
-                        answer = double.Parse(answerstr);
+                        CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+                        ci.NumberFormat.CurrencyDecimalSeparator = ".";
+                        answer = float.Parse(answerstr, NumberStyles.Any, ci);
+                        answer = 360f - answer;
                     }
                     catch (Exception e)
                     {

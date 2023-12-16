@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,21 +49,28 @@ namespace VerarbeitungTest
                 data = data.Replace(',', '.');//regio code formatting
                 string inputType = data.Split(':')[0];
                 string answerstr = data.Split(":")[1];
+                answerstr = answerstr.Remove(answerstr.Length - 1);
+                //Console.WriteLine("Raw Answer:" + answerstr);
                 if (inputType.CompareTo("alpha") == 0)
                 {
+                    
                     try
                     {
-                        answer = double.Parse(answerstr);
+                        CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+                        ci.NumberFormat.CurrencyDecimalSeparator = ".";
+                        answer = float.Parse(answerstr, NumberStyles.Any, ci);
+                        answer = 360 - answer;
                     }
                     catch (Exception e)
                     {
-
+                        Console.WriteLine("Cant Parse Answerstring!");
                     }
                 }
                 double offset = Math.Abs(answer - questionController.getCurrentQuestion().angle);
+                Console.WriteLine("Offset is " + offset + " Answ: "+answer+" Quest: "+ questionController.getCurrentQuestion().angle);
                 callibrationBuffer += offset;
                 callibrations++;
-                if (callibrations > 4)
+                if (callibrations > 3)
                 {
                     callibrationRunning = false;
                 }
@@ -72,7 +80,7 @@ namespace VerarbeitungTest
                     q.angle += 90;
                     questionController.generateQuestion(q);
                     questionController.askQuestion();
-                    Thread.Sleep(500);
+                    //Thread.Sleep(1200);
                 }
 
             }

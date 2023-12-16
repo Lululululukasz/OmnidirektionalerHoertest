@@ -18,18 +18,45 @@ namespace VerarbeitungTest
         CalibrationController calibrationController;
         SoundDomeView soundDomeView;
         OscRouter router;
+        private bool testRunning = false;
+        private bool startTest = false;
+        private bool stopTest = false;
 
-        void startTest()
+        
+        public void doTick()
         {
-            //calibrationController = new CalibrationController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router);
-            //calibrationOffset = calibrationController.startCallibration();
-            testController = new TestController(soundDomeView.askQuestion,soundDomeView.giveFeedback, router, 0);
-            testController.startTest();
-        }
-
-        void cancelTest() {
-            Console.WriteLine(2);
-            testController.finishTest();
+            if (startTest && !testRunning)
+            {
+                calibrationController = new CalibrationController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router);
+                calibrationOffset = calibrationController.startCallibration();
+                testController = new TestController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router, 0);
+                testRunning = true;
+                Console.WriteLine("Callibration offset is " + calibrationOffset);
+                Thread.Sleep(4000);
+                testController.startTest();
+            }else if (testRunning)
+            {
+                if (testController.isTestFinished())
+                {
+                    Test test = testController.getTestResult();
+                    foreach(double d in test.offset)
+                    {
+                        Console.WriteLine($"Scores {d}");
+                    }
+                    testRunning = false;
+                    startTest = false;
+                }
+            }
+            if (stopTest)
+            {
+                if (testController != null)
+                {
+                    testController.finishTest();
+                }
+                testRunning = false;
+                startTest = false;
+                stopTest = false;
+            }
         }
 
         public SystemController()
@@ -37,18 +64,18 @@ namespace VerarbeitungTest
             soundDomeView = new SoundDomeView("127.0.0.1");
             calibrationOffset = 0;
             router = new OscRouter();
-            router.AddReceiver((message) =>
+            router.AddReceiver(receiveInputs, SubscriberType.System);
+
+        }
+        public void receiveInputs(string data)
+        {
+            if(data == "click:1")
             {
-                if (message == "click:1") startTest();
-                else if (message == "click:2" && testController != null)
-                {
-                    cancelTest();
-                }
-            }, SubscriberType.System);
-
-            //in case someone cancels a test before starting it
-            testController = new TestController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router, calibrationOffset);
-
+                startTest = true;
+            }else if(data == "click:2")
+            {
+                stopTest = true;
+            }
         }
     }
 

@@ -33,7 +33,8 @@ namespace VerarbeitungTest
                 //sender.Send(new OscMessage("/adm/obj/1/elev", (float)0f));
                 //sender.Send(new OscMessage("/adm/obj/1/dist", (float)0.8f));
                 //Console.WriteLine("Tick");
-                Thread.Sleep(10);
+                controller.doTick();
+                Thread.Sleep(100);
             }
         }
     }
