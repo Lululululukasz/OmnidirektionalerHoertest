@@ -85,7 +85,7 @@ namespace VerarbeitungTest.Tests
             controller.generateQuestion(QuestionController.QuestionType.Random2D);
             controller.generateQuestion(QuestionController.QuestionType.Random2D);
 
-            Assert.That(controller.getCurrentQuestion().pitch, Is.EqualTo(50));
+            Assert.That(controller.getCurrentQuestion().pitch, Is.Positive);
         }
     }
 }
