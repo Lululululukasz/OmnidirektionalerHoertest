@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using VerarbeitungTest.Packages.Model;
 using static VerarbeitungTest.OscRouter;
 
 namespace VerarbeitungTest

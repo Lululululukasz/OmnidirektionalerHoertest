@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
+using VerarbeitungTest.Packages.Model;
 
 namespace VerarbeitungTest
 {
