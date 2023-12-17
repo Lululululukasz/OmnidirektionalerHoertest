@@ -35,7 +35,7 @@ namespace VerarbeitungTest.Tests
             receiver = new Rug.Osc.OscReceiver(9000);
             receiver.Connect();
             netThread.Start();
-            soundDomeView.askQuestion(new Question { angle=180,pitch=500});
+            soundDomeView.askQuestion(new Packages.Model.Question { angle=180,pitch=500});
             
             Assert.Pass();
            

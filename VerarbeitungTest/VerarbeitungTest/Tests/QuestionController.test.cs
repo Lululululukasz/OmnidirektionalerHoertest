@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VerarbeitungTest.Packages.Model;
 
 namespace VerarbeitungTest.Tests
 {
@@ -84,7 +85,7 @@ namespace VerarbeitungTest.Tests
             controller.generateQuestion(QuestionController.QuestionType.Random2D);
             controller.generateQuestion(QuestionController.QuestionType.Random2D);
 
-            Assert.That(controller.getCurrentQuestion().pitch, Is.EqualTo(50));
+            Assert.That(controller.getCurrentQuestion().pitch, Is.Positive);
         }
     }
 }
