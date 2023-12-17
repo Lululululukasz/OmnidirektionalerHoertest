@@ -92,17 +92,21 @@ namespace VerarbeitungTest
                         }
                         Question q = new Question();
                         //generate test Tone
-                        if(currentTestTone < 100)
+                        if (currentTestTone < 100)
                         {
                             currentTestTone += 10;
                         }
-                        else if(currentTestTone < 1000)
+                        else if (currentTestTone < 1000)
                         {
                             currentTestTone += 100;
                         }
                         else if (currentTestTone >= 1000)
                         {
-                            currentTestTone += 1000;
+                            currentTestTone += 200;
+                        }
+                        if (currentTestTone >= 3000)
+                        {
+                            currentTestTone = 100;
                         }
                         q.pitch = currentTestTone;
                         q.angle = targetDirection;
@@ -123,7 +127,11 @@ namespace VerarbeitungTest
                         }
                         else if (currentTestTone >= 1000)
                         {
-                            currentTestTone += 1000;
+                            currentTestTone += 200;
+                        }
+                        if(currentTestTone >= 3000)
+                        {
+                            currentTestTone = 100;
                         }
                         q.pitch = currentTestTone;
                         q.angle = rng.NextDouble() * 359 + 1;

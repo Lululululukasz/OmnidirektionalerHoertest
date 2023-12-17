@@ -23,7 +23,9 @@ namespace VerarbeitungTest
             test_passed,
             test_not_passed,
             start_callibration,
-            callibration_passed
+            callibration_passed,
+            correct,
+            wrong
         }
 
 
@@ -47,6 +49,8 @@ namespace VerarbeitungTest
             mp3Dictionary[FeedbackType.test_passed] = new Mp3FileReader("audio/Test-Passed.mp3");
             mp3Dictionary[FeedbackType.test_not_passed] = new Mp3FileReader("audio/test-not-passed.mp3");
             mp3Dictionary[FeedbackType.callibration_passed] = new Mp3FileReader("audio/callibration-passed.mp3");
+            mp3Dictionary[FeedbackType.correct] = new Mp3FileReader("audio/correct.mp3");
+            mp3Dictionary[FeedbackType.wrong] = new Mp3FileReader("audio/wrong.mp3");
             soundThread = new Thread(new ThreadStart(SoundOSCThread));
             _lock = new Object();
             soundThread.Start();
@@ -76,31 +80,7 @@ namespace VerarbeitungTest
             {
                 lock (_lock)
                 {
-                    if (QuestionQueue.Count != 0)
-                    {
-                        Question currentQuestion = QuestionQueue[0];
-                        QuestionQueue.RemoveAt(0);
-                        lastAngle = currentQuestion.angle;
-                        Console.WriteLine("setAngle " + (lastAngle));
-                        
-                        double frequency = currentQuestion.pitch;
-                        var sine3Seconds = new SignalGenerator()
-                        {
-                            Gain = 0.2,
-                            Frequency = frequency,
-                            Type = SignalGeneratorType.Sin
-                        }.Take(TimeSpan.FromSeconds(3));
-                        using (var wo = new WaveOutEvent())
-                        {
-                            wo.Init(sine3Seconds);
-                            wo.Play();
-                            while (wo.PlaybackState == PlaybackState.Playing)
-                            {
-                                Thread.Sleep(100);
-                            }
-                        }
-                    }
-                    else if (FeedbackQueue.Count != 0)
+                    if (FeedbackQueue.Count != 0)
                     {
 
                         FeedbackType currentFeedback = FeedbackQueue[0];
@@ -148,6 +128,7 @@ namespace VerarbeitungTest
                             default:
                                 if (mp3Dictionary.ContainsKey(currentFeedback))
                                 {
+                                    mp3Dictionary[currentFeedback].CurrentTime = TimeSpan.Zero;
                                     fbck = mp3Dictionary[currentFeedback].ToSampleProvider();
 
                                 }
@@ -165,9 +146,34 @@ namespace VerarbeitungTest
                         }
 
                     }
+                    else if (QuestionQueue.Count != 0)
+                    {
+                        Question currentQuestion = QuestionQueue[0];
+                        QuestionQueue.RemoveAt(0);
+                        lastAngle = currentQuestion.angle;
+                        Console.WriteLine("setAngle " + (lastAngle));
+                        
+                        double frequency = currentQuestion.pitch;
+                        Console.WriteLine("Freq: " + frequency + "hz");
+                        var sine3Seconds = new SignalGenerator()
+                        {
+                            Gain = 0.2,
+                            Frequency = frequency,
+                            Type = SignalGeneratorType.Sin
+                        }.Take(TimeSpan.FromSeconds(1));
+                        using (var wo = new WaveOutEvent())
+                        {
+                            wo.Init(sine3Seconds);
+                            wo.Play();
+                            while (wo.PlaybackState == PlaybackState.Playing)
+                            {
+                                Thread.Sleep(100);
+                            }
+                        }
+                    }
                 }
                 
-                Thread.Sleep(50);
+                Thread.Sleep(5);
             }
         }
     }

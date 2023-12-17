@@ -21,6 +21,7 @@ namespace VerarbeitungTest
         protected bool callibrationRunning;
         protected double callibrationBuffer;
         protected int callibrations = 0;
+        private bool readyForNextQuestion = false;
         public TestController(Action<Question> viewCallback, Action<SoundDomeView.FeedbackType> feedbackCallback, OscRouter router, double callibration)
         {
             this.router = router;
@@ -46,7 +47,10 @@ namespace VerarbeitungTest
         {
             if(answer != -1)
             {
-                return Math.Abs(answer-questionController.getCurrentQuestion().angle+calibrationOffset);
+                double a = Math.Abs(answer - questionController.getCurrentQuestion().angle + calibrationOffset);
+                double b = Math.Abs(answer - questionController.getCurrentQuestion().angle + calibrationOffset - 360);
+                
+                return a<b?a:b;
             }
             else
             {
@@ -54,6 +58,13 @@ namespace VerarbeitungTest
             }
 
         }
+        public void nextQuestion()
+        {
+            readyForNextQuestion = false;
+            generateQuestion();
+            soundDomeView(questionController.getCurrentQuestion());
+        }
+        public bool isReadyForNextQuestion() {  return readyForNextQuestion; }
         public void routerCallback(string data)
         {
             if(testStarted && (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - inputTimer > 1000)// Limit imput to once every second
@@ -71,7 +82,7 @@ namespace VerarbeitungTest
                         CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
                         ci.NumberFormat.CurrencyDecimalSeparator = ".";
                         answer = float.Parse(answerstr, NumberStyles.Any, ci);
-                        answer = 360f - answer;
+                        answer = answer + 90 > 360 ? (answer + 90 - 360) : (answer + 90);
                     }
                     catch (Exception e)
                     {
@@ -79,24 +90,24 @@ namespace VerarbeitungTest
                     }
                 }
                 double offset = checkAnswerOffset(answer);
-                if(offset > 20 || offset == -1)
+                if(offset > 40 || offset == -1)
                 {
+                    soundDomeViewFeedback(SoundDomeView.FeedbackType.wrong);
                     test.mistakes++;
                 }
+                else
+                {
+                    soundDomeViewFeedback(SoundDomeView.FeedbackType.correct);
+                }
                 test.offset.Add(offset);
+                //Thread.Sleep(100);
                 if(test.mistakes >= 3)
                 {
                     finishTest();
                 }
                 else
                 {
-                    Question question = new Question();
-                    question.angle = answer;
-                    question.pitch = answer == -1 ? 50 : 1200;
-                    //soundDomeView(question);
-                    //Thread.Sleep(1000);
-                    generateQuestion();
-                    soundDomeView(questionController.getCurrentQuestion());
+                    readyForNextQuestion = true;
                 }
                 
                 

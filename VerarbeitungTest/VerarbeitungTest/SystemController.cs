@@ -45,6 +45,10 @@ namespace VerarbeitungTest
                     }
                     testRunning = false;
                     startTest = false;
+                }else if (testController.isReadyForNextQuestion())
+                {
+                    Thread.Sleep(1500);
+                    testController.nextQuestion();
                 }
             }
             if (stopTest)

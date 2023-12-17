@@ -59,7 +59,7 @@ namespace VerarbeitungTest
                         CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
                         ci.NumberFormat.CurrencyDecimalSeparator = ".";
                         answer = float.Parse(answerstr, NumberStyles.Any, ci);
-                        answer = 360 - answer;
+                        answer = answer + 90 > 360 ? (answer + 90 - 360) : (answer + 90);
                     }
                     catch (Exception e)
                     {
