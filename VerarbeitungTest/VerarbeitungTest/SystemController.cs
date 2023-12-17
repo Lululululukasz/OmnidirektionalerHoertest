@@ -39,10 +39,16 @@ namespace VerarbeitungTest
                 if (testController.isTestFinished())
                 {
                     Test test = testController.getTestResult();
+                    double avr = 0;
+                    double n = 0;
                     foreach(double d in test.offset)
                     {
+                        n++;
+                        avr += d;
                         Console.WriteLine($"Scores {d}");
                     }
+                    avr = avr / n;
+                    SaveTestResult.SaveResult("test.save", avr);
                     testRunning = false;
                     startTest = false;
                 }else if (testController.isReadyForNextQuestion())
