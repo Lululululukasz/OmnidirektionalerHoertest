@@ -61,7 +61,9 @@ namespace VerarbeitungTest
             sender.Send(new OscMessage("/adm/obj/1/azim", (float)(question.angle - 180)));
             sender.Send(new OscMessage("/adm/obj/1/elev", (float)0.0));
             sender.Send(new OscMessage("/adm/obj/1/dist", (float)0.8));
-            
+            sender.Send(new OscMessage("/adm/obj/2/azim", (float)(question.angle - 180)));
+            sender.Send(new OscMessage("/adm/obj/2/elev", (float)0.0));
+            sender.Send(new OscMessage("/adm/obj/2/dist", (float)0.8));
             QuestionQueue.Add(question);
         }
         public void giveFeedback(FeedbackType f)
@@ -97,7 +99,7 @@ namespace VerarbeitungTest
                         switch (currentFeedback)
                         {
                             case FeedbackType.rise:
-                                fbck = new SignalGenerator()
+                                fbck = new SignalGenerator(44100, 1)
                                 {
                                     Gain = 0.2,
                                     Frequency = 200, // start frequency of the sweep
@@ -107,7 +109,7 @@ namespace VerarbeitungTest
                                 }.Take(TimeSpan.FromSeconds(1));
                                 break;
                             case FeedbackType.fall:
-                                fbck = new SignalGenerator()
+                                fbck = new SignalGenerator(44100, 1)
                                 {
                                     Gain = 0.2,
                                     Frequency = 1000, // start frequency of the sweep
@@ -117,8 +119,9 @@ namespace VerarbeitungTest
                                 }.Take(TimeSpan.FromSeconds(1));
                                 break;
                             case FeedbackType.beep:
-                                fbck = new SignalGenerator()
+                                fbck = new SignalGenerator(44100, 1)
                                 {
+                                    
                                     Gain = 0.2,
                                     Frequency = 1000, // start frequency of the sweep
                                     FrequencyEnd = 200,
@@ -156,7 +159,7 @@ namespace VerarbeitungTest
                         
                         double frequency = currentQuestion.pitch;
                         Console.WriteLine("Freq: " + frequency + "hz");
-                        var sine3Seconds = new SignalGenerator()
+                        var sine3Seconds = new SignalGenerator(44100,1)
                         {
                             Gain = 0.2,
                             Frequency = frequency,
