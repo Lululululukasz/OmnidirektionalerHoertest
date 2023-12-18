@@ -87,7 +87,7 @@ namespace VerarbeitungTest
                     }
                     catch (Exception e)
                     {
-
+                        Console.WriteLine("Cant Parse Alpha [" + data + "]");
                     }
                 }
                 double offset = checkAnswerOffset(answer);

@@ -72,7 +72,10 @@ namespace VerarbeitungTest
 
         public SystemController()
         {
-            soundDomeView = new SoundDomeView("127.0.0.1");
+            Console.WriteLine("Enter SoundDome IP:");
+            string ip = Console.ReadLine();
+            Console.WriteLine("System is Ready");
+            soundDomeView = new SoundDomeView(ip);
             calibrationOffset = 0;
             router = new OscRouter();
             router.AddReceiver(receiveInputs, SubscriberType.System);
