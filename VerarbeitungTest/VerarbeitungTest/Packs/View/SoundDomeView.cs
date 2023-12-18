@@ -78,6 +78,11 @@ namespace VerarbeitungTest
         {
             return mp3Dictionary;
         }
+        public void clearSoundQueue()
+        {
+            FeedbackQueue.Clear();
+            QuestionQueue.Clear();
+        }
         private void SoundOSCThread()
         {
             

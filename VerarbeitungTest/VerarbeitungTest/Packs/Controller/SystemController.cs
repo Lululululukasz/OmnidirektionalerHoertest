@@ -22,7 +22,7 @@ namespace VerarbeitungTest
         private bool testRunning = false;
         private bool startTest = false;
         private bool stopTest = false;
-        private bool okabort = false;
+        private bool waitForConfirm = false;
         
 
         
@@ -46,6 +46,7 @@ namespace VerarbeitungTest
                 if (testController.isTestFinished())
                 {
                     Test test = testController.getTestResult();
+                    soundDomeView.clearSoundQueue();
                     double avr = 0;
                     double n = 0;
                     foreach(double d in test.offset)
@@ -67,8 +68,8 @@ namespace VerarbeitungTest
             if (stopTest)
             {
                 soundDomeView.giveFeedback(SoundDomeView.FeedbackType.test_stop_confirm);
-                okabort = true;
-                while (okabort)
+                waitForConfirm = true;
+                while (waitForConfirm)
                 {
                     Thread.Sleep(100);
                 }
@@ -93,7 +94,7 @@ namespace VerarbeitungTest
             if(data == "click:1")
             {
                 startTest = true;
-                if(okabort)
+                if(waitForConfirm)
                 {
                     if (testController != null)
                     {
@@ -102,15 +103,20 @@ namespace VerarbeitungTest
                     testRunning = false;
                     startTest = false;
                     stopTest = false;
-                    okabort = false ;
+                    waitForConfirm = false ;
                 }
             }else if(data == "click:2")
             {
-                if (okabort)
+                if (waitForConfirm)
                 {
-                    okabort = false;
+                    waitForConfirm = false;
+                    stopTest = false;
                 }
-                stopTest = true;
+                else
+                {
+                    stopTest = true;
+                }
+                
                 
             }
         }
