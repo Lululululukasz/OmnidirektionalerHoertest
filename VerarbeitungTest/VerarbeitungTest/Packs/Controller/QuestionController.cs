@@ -103,12 +103,9 @@ namespace VerarbeitungTest
                         }
                         else if (currentTestTone >= 1000)
                         {
-                            currentTestTone += 200;
+                            currentTestTone += 1000;
                         }
-                        if (currentTestTone >= 3000)
-                        {
-                            currentTestTone = 100;
-                        }
+                        
                         q.pitch = currentTestTone;
                         q.angle = targetDirection;
                         question = q;
@@ -128,12 +125,9 @@ namespace VerarbeitungTest
                         }
                         else if (currentTestTone >= 1000)
                         {
-                            currentTestTone += 200;
+                            currentTestTone += 1000;
                         }
-                        if(currentTestTone >= 3000)
-                        {
-                            currentTestTone = 100;
-                        }
+                        
                         q.pitch = currentTestTone;
                         q.angle = rng.NextDouble() * 359 + 1;
                         question = q;
