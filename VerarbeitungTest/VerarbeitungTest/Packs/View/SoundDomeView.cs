@@ -82,7 +82,6 @@ namespace VerarbeitungTest
         }
         public void clearSoundQueue()
         {
-            //FeedbackQueue.Clear();
             QuestionQueue.Clear();
         }
         private void SoundOSCThread()
@@ -166,10 +165,8 @@ namespace VerarbeitungTest
                         Question currentQuestion = QuestionQueue[0];
                         QuestionQueue.RemoveAt(0);
                         lastAngle = currentQuestion.angle;
-                        //Console.WriteLine("setAngle " + (lastAngle));
                         
                         double frequency = currentQuestion.pitch;
-                        //Console.WriteLine("Freq: " + frequency + "hz");
                         var sine3Seconds = new SignalGenerator(44100,1)
                         {
                             Gain = 0.2,

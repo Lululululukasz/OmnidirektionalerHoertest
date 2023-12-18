@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using VerarbeitungTest.Packages.Model;
 
-namespace VerarbeitungTest
+namespace VerarbeitungTest.Tests
 {
     [TestFixture]
     internal class TestTest

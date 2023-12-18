@@ -52,7 +52,6 @@ namespace VerarbeitungTest
                 string inputType = data.Split(':')[0];
                 string answerstr = data.Split(":")[1];
                 answerstr = answerstr.Remove(answerstr.Length - 1);
-                //Console.WriteLine("Raw Answer:" + answerstr+"   DATA["+data+"]");
                 if (inputType.CompareTo("alpha") == 0)
                 {
                     
@@ -82,7 +81,6 @@ namespace VerarbeitungTest
                     q.angle += 90;
                     questionController.generateQuestion(q);
                     questionController.askQuestion();
-                    //Thread.Sleep(1200);
                 }
 
             }

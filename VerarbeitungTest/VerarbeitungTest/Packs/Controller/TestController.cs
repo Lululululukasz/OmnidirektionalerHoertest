@@ -101,7 +101,6 @@ namespace VerarbeitungTest
                     soundDomeViewFeedback(SoundDomeView.FeedbackType.correct);
                 }
                 test.offset.Add(offset);
-                //Thread.Sleep(100);
                 if(test.mistakes >= 3)
                 {
                     finishTest();

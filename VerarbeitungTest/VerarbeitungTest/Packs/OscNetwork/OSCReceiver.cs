@@ -17,14 +17,12 @@ namespace VerarbeitungTest
         private Thread netThread;
         public OscReceiver(Action<string> _callback, int port = 9000)
         {
-            //Console.WriteLine("Creating Osc Receiver");
             callback = _callback;
             netThread = new Thread(new ThreadStart(OSCThread));
             _lock = new Object();
             receiver = new Rug.Osc.OscReceiver(port);
             receiver.Connect();
             netThread.Start();
-            //Console.WriteLine("All init");
         }
         /// <summary>
         /// Main OSC Networkthread Funktion. Loops in Seperate Thread til the socket is Closed or Throws an Error
@@ -71,7 +69,6 @@ namespace VerarbeitungTest
         public void Close()
         {
             receiver.Close();
-            //netThread.Abort();
         }
     }
 }
