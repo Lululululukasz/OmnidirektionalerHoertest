@@ -80,10 +80,10 @@ namespace VerarbeitungTest
             }
         }
 
-        public SystemController()
+        public SystemController(string SoundDomeIp)
         {
-            Console.WriteLine("Enter SoundDome IP:");
-            string ip = Console.ReadLine();
+            
+            string ip = SoundDomeIp;
             Console.WriteLine("System is Ready");
             soundDomeView = new SoundDomeView(ip);
             calibrationOffset = 0;

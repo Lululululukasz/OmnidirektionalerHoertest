@@ -22,7 +22,10 @@ namespace VerarbeitungTest
             //OscSender sender = new OscSender(IPAddress.Parse("127.0.0.1"), 9001);
             //sender.Connect();
             //SoundDomeSender sds = new SoundDomeSender("127.0.0.1",9001);
-            SystemController controller = new SystemController();
+            Console.WriteLine("Enter SoundDome IP:");
+            string ip = Console.ReadLine();
+
+            SystemController controller = new SystemController(ip);
 
             //Main Loop
 
