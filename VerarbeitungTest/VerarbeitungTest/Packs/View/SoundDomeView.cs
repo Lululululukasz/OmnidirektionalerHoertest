@@ -26,7 +26,9 @@ namespace VerarbeitungTest
             start_callibration,
             callibration_passed,
             correct,
-            wrong
+            wrong,
+            programm_start,
+            test_stop_confirm
         }
 
 
@@ -52,6 +54,8 @@ namespace VerarbeitungTest
             mp3Dictionary[FeedbackType.callibration_passed] = new Mp3FileReader("audio/callibration-passed.mp3");
             mp3Dictionary[FeedbackType.correct] = new Mp3FileReader("audio/correct.mp3");
             mp3Dictionary[FeedbackType.wrong] = new Mp3FileReader("audio/wrong.mp3");
+            mp3Dictionary[FeedbackType.programm_start] = new Mp3FileReader("audio/program_start.mp3");
+            mp3Dictionary[FeedbackType.test_stop_confirm] = new Mp3FileReader("audio/test_stop_confirm.mp3");
             soundThread = new Thread(new ThreadStart(SoundOSCThread));
             _lock = new Object();
             soundThread.Start();

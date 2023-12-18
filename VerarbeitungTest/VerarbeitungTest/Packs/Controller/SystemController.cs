@@ -22,14 +22,20 @@ namespace VerarbeitungTest
         private bool testRunning = false;
         private bool startTest = false;
         private bool stopTest = false;
+        private bool okabort = false;
+        
 
         
         public void doTick()
         {
             if (startTest && !testRunning)
             {
-                calibrationController = new CalibrationController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router);
-                calibrationOffset = calibrationController.startCallibration();
+                if(calibrationOffset == 0)
+                {
+                    calibrationController = new CalibrationController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router);
+                    calibrationOffset = calibrationController.startCallibration();
+                }
+                
                 testController = new TestController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router, 0);
                 testRunning = true;
                 Console.WriteLine("Callibration offset is " + calibrationOffset);
@@ -60,13 +66,13 @@ namespace VerarbeitungTest
             }
             if (stopTest)
             {
-                if (testController != null)
+                soundDomeView.giveFeedback(SoundDomeView.FeedbackType.test_stop_confirm);
+                okabort = true;
+                while (okabort)
                 {
-                    testController.finishTest();
+                    Thread.Sleep(100);
                 }
-                testRunning = false;
-                startTest = false;
-                stopTest = false;
+                
             }
         }
 
@@ -77,6 +83,7 @@ namespace VerarbeitungTest
             Console.WriteLine("System is Ready");
             soundDomeView = new SoundDomeView(ip);
             calibrationOffset = 0;
+            soundDomeView.giveFeedback(SoundDomeView.FeedbackType.programm_start);
             router = new OscRouter();
             router.AddReceiver(receiveInputs, SubscriberType.System);
 
@@ -86,9 +93,25 @@ namespace VerarbeitungTest
             if(data == "click:1")
             {
                 startTest = true;
+                if(okabort)
+                {
+                    if (testController != null)
+                    {
+                        testController.finishTest();
+                    }
+                    testRunning = false;
+                    startTest = false;
+                    stopTest = false;
+                    okabort = false ;
+                }
             }else if(data == "click:2")
             {
+                if (okabort)
+                {
+                    okabort = false;
+                }
                 stopTest = true;
+                
             }
         }
     }
