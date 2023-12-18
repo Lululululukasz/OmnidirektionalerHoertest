@@ -8,7 +8,7 @@ using NUnit.Framework;
 using Rug.Osc;
 
 
-namespace VerarbeitungTest
+namespace VerarbeitungTest.Tests
 {
     /// <summary>
     /// Test Class for the OscReceiver Class. It Starts Automatically after Creation if the Test is Passed it shoud show "Test -> OscReceiver : OK"
