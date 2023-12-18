@@ -22,14 +22,22 @@ namespace VerarbeitungTest
         private bool testRunning = false;
         private bool startTest = false;
         private bool stopTest = false;
+        private bool waitForConfirm = false;
+        
 
         
         public void doTick()
         {
             if (startTest && !testRunning)
             {
-                calibrationController = new CalibrationController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router);
-                calibrationOffset = calibrationController.startCallibration();
+                if(calibrationOffset == 0)
+                {
+                    calibrationController = new CalibrationController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router);
+                    calibrationOffset = calibrationController.startCallibration();
+                    Thread.Sleep(500);
+                    soundDomeView.clearSoundQueue();
+                }
+                
                 testController = new TestController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router, 0);
                 testRunning = true;
                 Console.WriteLine("Callibration offset is " + calibrationOffset);
@@ -40,6 +48,8 @@ namespace VerarbeitungTest
                 if (testController.isTestFinished())
                 {
                     Test test = testController.getTestResult();
+                    Thread.Sleep(500);
+                    soundDomeView.clearSoundQueue();
                     double avr = 0;
                     double n = 0;
                     foreach(double d in test.offset)
@@ -60,20 +70,24 @@ namespace VerarbeitungTest
             }
             if (stopTest)
             {
-                if (testController != null)
+                soundDomeView.giveFeedback(SoundDomeView.FeedbackType.test_stop_confirm);
+                waitForConfirm = true;
+                while (waitForConfirm)
                 {
-                    testController.finishTest();
+                    Thread.Sleep(100);
                 }
-                testRunning = false;
-                startTest = false;
-                stopTest = false;
+                
             }
         }
 
         public SystemController()
         {
-            soundDomeView = new SoundDomeView("127.0.0.1");
+            Console.WriteLine("Enter SoundDome IP:");
+            string ip = Console.ReadLine();
+            Console.WriteLine("System is Ready");
+            soundDomeView = new SoundDomeView(ip);
             calibrationOffset = 0;
+            soundDomeView.giveFeedback(SoundDomeView.FeedbackType.programm_start);
             router = new OscRouter();
             router.AddReceiver(receiveInputs, SubscriberType.System);
 
@@ -83,9 +97,30 @@ namespace VerarbeitungTest
             if(data == "click:1")
             {
                 startTest = true;
+                if(waitForConfirm)
+                {
+                    if (testController != null)
+                    {
+                        testController.finishTest();
+                    }
+                    testRunning = false;
+                    startTest = false;
+                    stopTest = false;
+                    waitForConfirm = false ;
+                }
             }else if(data == "click:2")
             {
-                stopTest = true;
+                if (waitForConfirm)
+                {
+                    waitForConfirm = false;
+                    stopTest = false;
+                }
+                else
+                {
+                    stopTest = true;
+                }
+                
+                
             }
         }
     }

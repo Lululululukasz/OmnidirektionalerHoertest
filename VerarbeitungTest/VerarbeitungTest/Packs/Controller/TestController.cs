@@ -87,7 +87,7 @@ namespace VerarbeitungTest
                     }
                     catch (Exception e)
                     {
-
+                        Console.WriteLine("Cant Parse Alpha [" + data + "]");
                     }
                 }
                 double offset = checkAnswerOffset(answer);
@@ -123,7 +123,6 @@ namespace VerarbeitungTest
         public void finishTest()
         {
             soundDomeViewFeedback(SoundDomeView.FeedbackType.test_passed);
-            GuiController.SendResultToGui(test);
             testStarted = false;
         }
         public Test getTestResult()

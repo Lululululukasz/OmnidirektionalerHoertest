@@ -46,12 +46,13 @@ namespace VerarbeitungTest
             if (callibrationRunning && (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - inputTimer > 1000)// Limit imput to once every second
             {
                 inputTimer = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+
                 double answer = -1;
                 data = data.Replace(',', '.');//regio code formatting
                 string inputType = data.Split(':')[0];
                 string answerstr = data.Split(":")[1];
                 answerstr = answerstr.Remove(answerstr.Length - 1);
-                //Console.WriteLine("Raw Answer:" + answerstr);
+                //Console.WriteLine("Raw Answer:" + answerstr+"   DATA["+data+"]");
                 if (inputType.CompareTo("alpha") == 0)
                 {
                     
