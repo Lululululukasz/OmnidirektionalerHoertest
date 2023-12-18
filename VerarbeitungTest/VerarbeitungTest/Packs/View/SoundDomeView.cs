@@ -68,11 +68,13 @@ namespace VerarbeitungTest
             sender.Send(new OscMessage("/adm/obj/2/azim", (float)(question.angle - 180)));
             sender.Send(new OscMessage("/adm/obj/2/elev", (float)0.0));
             sender.Send(new OscMessage("/adm/obj/2/dist", (float)0.8));
+            Console.WriteLine("Question Angle:" + question.angle + " pitch:" + question.pitch);
             QuestionQueue.Add(question);
         }
         public void giveFeedback(FeedbackType f)
         {
             FeedbackQueue.Add(f);
+            Console.WriteLine(f.ToString());
         }
         public Dictionary<FeedbackType,Mp3FileReader> getMp3Dictionary()
         {
@@ -164,10 +166,10 @@ namespace VerarbeitungTest
                         Question currentQuestion = QuestionQueue[0];
                         QuestionQueue.RemoveAt(0);
                         lastAngle = currentQuestion.angle;
-                        Console.WriteLine("setAngle " + (lastAngle));
+                        //Console.WriteLine("setAngle " + (lastAngle));
                         
                         double frequency = currentQuestion.pitch;
-                        Console.WriteLine("Freq: " + frequency + "hz");
+                        //Console.WriteLine("Freq: " + frequency + "hz");
                         var sine3Seconds = new SignalGenerator(44100,1)
                         {
                             Gain = 0.2,

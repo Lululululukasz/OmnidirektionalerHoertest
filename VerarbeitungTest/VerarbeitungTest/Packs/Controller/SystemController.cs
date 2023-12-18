@@ -34,6 +34,8 @@ namespace VerarbeitungTest
                 {
                     calibrationController = new CalibrationController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router);
                     calibrationOffset = calibrationController.startCallibration();
+                    Thread.Sleep(500);
+                    soundDomeView.clearSoundQueue();
                 }
                 
                 testController = new TestController(soundDomeView.askQuestion, soundDomeView.giveFeedback, router, 0);
