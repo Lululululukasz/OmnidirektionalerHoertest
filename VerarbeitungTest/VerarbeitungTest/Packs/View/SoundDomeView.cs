@@ -82,7 +82,7 @@ namespace VerarbeitungTest
         }
         public void clearSoundQueue()
         {
-            FeedbackQueue.Clear();
+            //FeedbackQueue.Clear();
             QuestionQueue.Clear();
         }
         private void SoundOSCThread()

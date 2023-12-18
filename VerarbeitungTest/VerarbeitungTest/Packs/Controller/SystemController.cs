@@ -48,6 +48,7 @@ namespace VerarbeitungTest
                 if (testController.isTestFinished())
                 {
                     Test test = testController.getTestResult();
+                    Thread.Sleep(500);
                     soundDomeView.clearSoundQueue();
                     double avr = 0;
                     double n = 0;
