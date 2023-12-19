@@ -64,10 +64,10 @@ namespace VerarbeitungTest
         {
             sender.Send(new OscMessage("/adm/obj/1/azim", (float)(question.angle - 180)));
             sender.Send(new OscMessage("/adm/obj/1/elev", (float)0.0));
-            sender.Send(new OscMessage("/adm/obj/1/dist", (float)0.8));
+            sender.Send(new OscMessage("/adm/obj/1/dist", (float)0.2));
             sender.Send(new OscMessage("/adm/obj/2/azim", (float)(question.angle - 180)));
             sender.Send(new OscMessage("/adm/obj/2/elev", (float)0.0));
-            sender.Send(new OscMessage("/adm/obj/2/dist", (float)0.8));
+            sender.Send(new OscMessage("/adm/obj/2/dist", (float)0.2));
             Console.WriteLine("Question Angle:" + question.angle + " pitch:" + question.pitch);
             QuestionQueue.Add(question);
         }
