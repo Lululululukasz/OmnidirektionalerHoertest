@@ -91,7 +91,7 @@ namespace VerarbeitungTest
                     }
                 }
                 double offset = checkAnswerOffset(answer);
-                if(offset > 40 || offset == -1)
+                if(offset > 90 || offset == -1)
                 {
                     soundDomeViewFeedback(SoundDomeView.FeedbackType.wrong);
                     test.mistakes++;
