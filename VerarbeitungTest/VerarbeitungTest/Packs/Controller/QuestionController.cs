@@ -74,14 +74,14 @@ namespace VerarbeitungTest
                     {
                         if(otherGroupData.Count == 0)
                         {
-                            question = new Question();
+                            generateQuestion(QuestionType.Random2D);
                             break;
                         }
                         double targetDirection = 0;
                         //choose Random Data Entry
                         int index = rng.Next(otherGroupData.Count);
                         double choosenOne = otherGroupData[index];
-
+                        otherGroupData.Clear();
                         //Differetiate between External data Ranges
                         if (choosenOne < 1)
                         {
@@ -90,6 +90,10 @@ namespace VerarbeitungTest
                         else
                         {
                             targetDirection = choosenOne;
+                            if(targetDirection >= 360)
+                            {
+                                targetDirection = targetDirection - 360;
+                            }
                         }
                         Question q = new Question();
                         //generate test Tone
@@ -171,6 +175,7 @@ namespace VerarbeitungTest
             try
             {
                 otherGroupData.Add(double.Parse(data.Split(':')[1]));
+                Console.WriteLine("Got Data From Other Group " + data);
             }catch(Exception e)
             {
 

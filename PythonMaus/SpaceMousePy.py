@@ -35,8 +35,8 @@ class Sampler:
     def run(self):
         while(True):
             data = self.reader.getData()
-            if data.pitch < -0.3 or data.pitch > 0.3 or data.roll < -0.3 or data.roll > 0.3 and (data.state.t - lastT) > 0.4:
-                lastT = data.state.t
+            if data.pitch < -0.3 or data.pitch > 0.3 or data.roll < -0.3 or data.roll > 0.3 and (data.state.t - self.lastT) > 0.4:
+                self.lastT = data.state.t
                 self.interpreter.interpret(data)
             if data.state.buttons[0] == 1 and self.click1 == 0:
                 self.client = udp_client.SimpleUDPClient("127.0.0.1", 9000)
