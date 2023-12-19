@@ -81,7 +81,7 @@ namespace VerarbeitungTest
                         //choose Random Data Entry
                         int index = rng.Next(otherGroupData.Count);
                         double choosenOne = otherGroupData[index];
-
+                        otherGroupData.Clear();
                         //Differetiate between External data Ranges
                         if (choosenOne < 1)
                         {
