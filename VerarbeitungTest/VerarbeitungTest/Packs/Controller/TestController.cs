@@ -130,7 +130,7 @@ namespace VerarbeitungTest
         }
         private void generateQuestion()
         {
-            questionController.generateQuestion(QuestionController.QuestionType.Random2D);
+            questionController.generateQuestion(QuestionController.QuestionType.External);
         }
         public QuestionController getQuestionController()
         {
